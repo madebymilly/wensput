@@ -12,11 +12,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "panda --watch & react-scripts start",
+    "build": "panda & react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "panda codegen"
   },
+
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -34,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^0.42.0"
   }
 }
