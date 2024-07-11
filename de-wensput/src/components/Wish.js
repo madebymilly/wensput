@@ -1,8 +1,6 @@
 function Wish(props) {
   return (
-    <>
-      <div className="wish">wens...{props.wish}</div>
-    </>
+    <div className="wish">wens...{props.wish}</div>
   )
 }
 

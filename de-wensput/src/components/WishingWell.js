@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Question from './Question'
 import Start from './Start'
 
 import { getRandomItems, shuffle } from '../js/helpers'
 
 import { allQuestions } from '../data/questions'
-
 
 function WishingWell() {
 

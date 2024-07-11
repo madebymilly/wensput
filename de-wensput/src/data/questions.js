@@ -69,6 +69,6 @@ export const allQuestions = [
     condition: false,
     text: 'Speel je graag cöoperatief of juist tegen elkaar?',
     button1: 'Samen op avontuur',
-    button2: 'Ik wil de onderlinge competitie'
+    button2: 'Ik wil onderlinge competitie'
   },
 ];
