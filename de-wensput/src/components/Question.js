@@ -1,13 +1,13 @@
 import Button from './Button'
 
 function Question(props) {
-  const { id, text, button1, button2, handleClick } = props
+  const { id, text, button1, button2, category, attribute, condition, handleClick  } = props
 
   return (
-    <div className="question">
+    <div className="Question">
       <h2>{text}</h2>
-      <Button onClick={handleClick}>{button1}</Button>
-      <Button onClick={handleClick}>{button2}</Button>
+      <Button onClick={() => handleClick(true, category, attribute, condition )}>{button1}</Button>
+      <Button onClick={() => handleClick(false)}>{button2}</Button>
     </div>
   )
 }
