@@ -1,6 +1,5 @@
-export const questions = [
+export const allQuestions = [
   {
-    id: 1,
     required: true,
     category: false,
     attribute: 'max-aantal-spelers',
@@ -10,7 +9,6 @@ export const questions = [
     button2: 'Spelen doe je met maten'
   },
   {
-    id: 2,
     required: true,
     category: false,
     attribute: 'max-speeltijd',
@@ -20,8 +18,7 @@ export const questions = [
     button2: 'Doe maar lekker lang'
   },
   {
-    id: 3,
-    required: true,
+    required: false,
     category: false,
     attribute: 'easy-to-learn',
     condition: 'Yes',
@@ -30,7 +27,6 @@ export const questions = [
     button2: 'Laat mij maar lekker lezen'
   },
   {
-    id: 4,
     required: false,
     category: 'educatief',
     attribute: false,
@@ -40,7 +36,6 @@ export const questions = [
     button2: 'Gewoon spelen'
   },
   {
-    id: 5,
     required: false,
     category: false,
     attribute: 'thema',
@@ -50,7 +45,6 @@ export const questions = [
     button2: 'Ik hou van gewoontjes'
   },
   {
-    id: 6,
     required: false,
     category: false,
     attribute: 'thema',
@@ -60,7 +54,6 @@ export const questions = [
     button2: 'Ik ga voor vrede'
   },
   {
-    id: 7,
     required: false,
     category: false,
     attribute: 'thema',
@@ -70,7 +63,6 @@ export const questions = [
     button2: 'Ik ben allergisch'
   },
   {
-    id: 8,
     required: true,
     category: 'cooperatief',
     attribute: false,
