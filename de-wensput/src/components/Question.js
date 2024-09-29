@@ -1,7 +1,6 @@
 import Button from './Button'
 
-function Question(props) {
-  const { id, text, button1, button2, category, attribute, condition, handleClick, numberOfQuestions  } = props
+function Question({ id, text, button1, button2, category, attribute, condition, handleClick, numberOfQuestions }) {
 
   return (
     <div className="Question">

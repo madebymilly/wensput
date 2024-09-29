@@ -1,6 +1,6 @@
-function Wish(props) {
+function Wish({ wish }) {
   return (
-    <div className="wish">wens...{props.wish}</div>
+    <div className="wish">wens...{wish}</div>
   )
 }
 

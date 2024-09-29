@@ -1,10 +1,25 @@
 import { useState } from 'react'
 import Question from './Question'
 import Start from './Start'
+import { useQuery, gql } from '@apollo/client';
+import { GET_PRODUCTS } from '../queries/get-products';
 
 import { getRandomItems, shuffle } from '../js/helpers'
 
 import { allQuestions } from '../data/questions'
+
+function Products() {
+  const { loading, error, data } = useQuery(GET_PRODUCTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+
+  return data.products.edges.map(({ node }, i) => (
+    <div key={i}>
+      <h3>{node.name}</h3>
+    </div>
+  ));
+}
 
 function WishingWell() {
 
@@ -73,6 +88,8 @@ function WishingWell() {
         )
         : <Start handleClick={handleStartClick} />
       }
+      <h2>All product names:</h2>
+      <Products />
     </div>
   )
 }

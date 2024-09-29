@@ -1,4 +1,14 @@
 export const allQuestions = [
+    {
+    required: true,
+    category: 'leeftijd',
+    attribute: false,
+    condition: false,
+    text: 'Met wie wil je een spel spelen?',
+    button1: 'Kinderen', //  2-6
+    button2: 'Volwassenen', // 12+
+    button3: 'Familie' // 6+
+  },
   {
     required: true,
     category: false,
@@ -14,8 +24,8 @@ export const allQuestions = [
     attribute: 'max-speeltijd',
     condition: 30,
     text: 'Houd je van korte snelle spellen of zit je graag lang aan tafel?',
-    button1: 'Doe maar lekker kort',
-    button2: 'Doe maar lekker lang'
+    button1: 'mand! (Doe maar lekker kort)',
+    button2: 'Kan me niet lang genoeg duren'
   },
   {
     required: false,
@@ -37,12 +47,21 @@ export const allQuestions = [
   },
   {
     required: false,
+    category: 'escape_puzzel',
+    attribute: false,
+    condition: false,
+    text: 'Houd je van puzzelen?',
+    button1: 'Ja',
+    button2: 'Nee'
+  },
+  {
+    required: false,
     category: false,
     attribute: 'thema',
     condition: 'fantasy',
     text: 'Houd je van fantasy thema?',
     button1: 'Kom maar op met de dwergen en elfen',
-    button2: 'Ik hou van gewoontjes'
+    button2: 'Normaal vind ik gek genoeg'
   },
   {
     required: false,
@@ -63,7 +82,7 @@ export const allQuestions = [
     button2: 'Ik ben allergisch'
   },
   {
-    required: true,
+    required: false,
     category: 'cooperatief',
     attribute: false,
     condition: false,
