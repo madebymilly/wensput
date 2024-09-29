@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Question from './Question'
 import Start from './Start'
+import End from './End'
+import AudioPlayer from './AudioPlayer'
 import { useQuery, gql } from '@apollo/client';
 import { GET_PRODUCTS } from '../queries/get-products';
 
@@ -14,9 +16,13 @@ function Products() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  return data.products.edges.map(({ node }, i) => (
-    <div key={i}>
-      <h3>{node.name}</h3>
+  console.log(data.products.nodes)
+
+  return data.products.nodes.map(({ id, name, type, allPaLeeftijd }) => (
+    <div key={id} style={{ padding: '20px', border: '2px solid red' }}>
+      <h3>{name} | {type}</h3>
+      <p>Leeftijd: {allPaLeeftijd.nodes[0].name}</p>
+      <p>Thema's:</p>
     </div>
   ));
 }
@@ -27,6 +33,7 @@ function WishingWell() {
 
   const [start, setStart] = useState(false)
   const [questions, setQuestions] = useState(false)
+  const [end, setEnd] = useState(false)
   const [answers, setAnswers] = useState([])
   const [currentQuestionId, setCurrentQuestionId] = useState(1)
 
@@ -80,14 +87,24 @@ function WishingWell() {
     setStart(true)
   }
 
+  useEffect(() => {
+    if (currentQuestionId > settings.numberOfQuestions) {
+      setEnd(true)
+    }
+  }, [currentQuestionId]);
+
   return (
     <div className="Wishingwell">
       {start
-        ? questions.filter(question => question.id === currentQuestionId).map((question, i) =>
-          <Question key={i} id={i} {...question} handleClick={handleAnswerClick} numberOfQuestions={questions.length} />
-        )
+        ? end
+          ? <End />
+          : questions.filter(question => question.id === currentQuestionId).map((question, i) =>
+              <Question key={i} id={i} {...question} handleClick={handleAnswerClick} numberOfQuestions={questions.length} />
+          )
+
         : <Start handleClick={handleStartClick} />
       }
+      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} />
       <h2>All product names:</h2>
       <Products />
     </div>
