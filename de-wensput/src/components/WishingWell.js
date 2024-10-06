@@ -5,7 +5,7 @@ import End from './End'
 import AudioPlayer from './AudioPlayer'
 import Products from './Products'
 
-import { getRandomItems, shuffle } from '../js/helpers'
+import { getRandomItems } from '../js/helpers'
 
 import { allQuestions } from '../data/questions'
 
@@ -89,7 +89,6 @@ function WishingWell() {
       <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} />
 
       <div className="test">
-        <h2>All product names:</h2>
          <Products />
       </div>
 
