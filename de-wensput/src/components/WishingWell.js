@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react'
+import { useQuery } from '@apollo/client';
+import { GET_PRODUCTS } from '../queries/get-products';
+
 import Question from './Question'
 import Start from './Start'
 import End from './End'
@@ -11,39 +14,87 @@ import { allQuestions } from '../data/questions'
 
 function WishingWell() {
 
-  const settings = { numberOfQuestions: 6 }
+  const settings = { numberOfQuestions: 3 }
 
   const [start, setStart] = useState(false)
   const [questions, setQuestions] = useState(false)
   const [end, setEnd] = useState(false)
-  const [answers, setAnswers] = useState([])
+  const [answers, setAnswers] = useState({})
   const [currentQuestionId, setCurrentQuestionId] = useState(1)
+  const [wish, setWish] = useState({})
 
-  function handleAnswerClick(firstButton, category, attribute, condition) {
-    // only first button (true) counts
-    if (firstButton) {
-
-      // If category:
-      if (category) {
-        setAnswers([
-          ...answers,
-          { category: category }
-        ])
-
-      // If attribute:
-      } else if (attribute) {
-        setAnswers([
-          ...answers,
-          { attribute: attribute, condition: condition }
-        ])
-      }
+  useEffect(() => {
+    if (currentQuestionId > settings.numberOfQuestions) {
+      setEnd(true)
+      getWish()
     }
+  }, [currentQuestionId]);
+
+  // Get (in stock) products or show loading or error message
+  const { loading, error, data } = useQuery(GET_PRODUCTS);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const products = data.products.nodes;
+
+  return (
+    <div className="Wishingwell">
+      {start
+        ? end
+          ? <End wish={wish} />
+          : questions.filter(question => question.id === currentQuestionId).map((question, i) =>
+              <Question key={i} id={i} {...question} handleClick={handleAnswerClick} numberOfQuestions={questions.length} />
+          )
+
+        : <Start handleClick={handleStartClick} />
+      }
+      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} />
+
+      {/*<div className="test">
+         <Products />
+      </div>*/}
+
+    </div>
+  )
+
+  function getWish() {
+    // Filter on products
+    const filteredProducts = products.filter(product => {
+      // TODO: ook checken of audio file beschikbaar is!!!
+      // const hasAudio = product.metaData && product.metaData[0].value; // Controleer of er audio in metaData is
+      // if (!hasAudio) return false; // Als er geen audio is, stop dan meteen met filteren
+
+      const ageFilter = answers.age && product.allPaLeeftijd.nodes.find(node => parseInt(node.slug) >= answers.age);
+      const playersFilter = answers.players && product.allPaMinAantalSpelers.nodes.find(node => parseInt(node.slug) >= answers.players);
+      const categoryFilter = answers.category && product.productCategories.nodes.some(node => node.slug === answers.category); // TODO: zijn er meer vragen met category?
+      const themaFilter = answers.theme && product.allPaThema.nodes.some(node => node.slug === answers.theme);
+      const tagFilter = answers.tag && product.productTags.nodes.some(node => node.slug === answers.tag);
+      //const durationFilter = answers.duration && answers.duration.some(duration => product.allPaSpeelduur.nodes === duration); // Controleer of de speelduur overeenkomt
+      const durationFilter = answers.duration && product.allPaSpeelduur.nodes.find(); // Controleer of de speelduur overeenkomt
+
+
+      return ageFilter !== undefined && playersFilter !== undefined && categoryFilter && themaFilter && tagFilter;
+      //return durationFilter;
+    });
+
+    console.log(answers);
+
+    if (filteredProducts.length === 0) {
+      setWish(false);
+    } else {
+      setWish(getRandomItems(filteredProducts, 1));
+    }
+  }
+
+  function handleAnswerClick(attributes) {
+    setAnswers(prevState => ({
+      ...prevState, // Keep the original properties
+      ...attributes
+    }));
+
 
     // Go to next question
     setCurrentQuestionId(currentQuestionId + 1)
-
-    console.log(answers)
-    console.log(questions)
   }
 
   function handleStartClick() {
@@ -68,32 +119,6 @@ function WishingWell() {
     setQuestions(getQuestions())
     setStart(true)
   }
-
-  useEffect(() => {
-    if (currentQuestionId > settings.numberOfQuestions) {
-      setEnd(true)
-    }
-  }, [currentQuestionId]);
-
-  return (
-    <div className="Wishingwell">
-      {start
-        ? end
-          ? <End />
-          : questions.filter(question => question.id === currentQuestionId).map((question, i) =>
-              <Question key={i} id={i} {...question} handleClick={handleAnswerClick} numberOfQuestions={questions.length} />
-          )
-
-        : <Start handleClick={handleStartClick} />
-      }
-      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} />
-
-      <div className="test">
-         <Products />
-      </div>
-
-    </div>
-  )
 }
 
 export default WishingWell;

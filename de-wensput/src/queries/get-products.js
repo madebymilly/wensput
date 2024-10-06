@@ -16,6 +16,7 @@ export const GET_PRODUCTS = gql`
           allPaLeeftijd {
             nodes {
               name
+              slug
             }
           }
           allPaThema {
@@ -27,11 +28,13 @@ export const GET_PRODUCTS = gql`
           productCategories {
             nodes {
               name
+              slug
             }
           }
           productTags {
             nodes {
               name
+              slug
             }
           }
           allPaMinAantalSpelers {

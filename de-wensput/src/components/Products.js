@@ -8,7 +8,6 @@ function Products() {
   if (error) return <p>Error: {error.message}</p>;
 
   const products = data.products.nodes;
-  console.log(products)
 
   return products.map(({ id, name, metaData, allPaLeeftijd, allPaMinAantalSpelers, allPaMaxAantalSpelers, allPaSpeelduur, allPaTaal, allPaThema, productCategories, productTags }) => (
     <div key={id} style={{ padding: '20px', border: '2px solid red' }}>
