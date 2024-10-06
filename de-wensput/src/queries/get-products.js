@@ -6,10 +6,13 @@ export const GET_PRODUCTS = gql`
       nodes {
         id
         name
-        type
         ... on SimpleProduct {
           id
           name
+          metaData {
+            key
+            value
+          }
           allPaLeeftijd {
             nodes {
               name
@@ -18,6 +21,7 @@ export const GET_PRODUCTS = gql`
           allPaThema {
             nodes {
               name
+              slug
             }
           }
           productCategories {
@@ -28,6 +32,30 @@ export const GET_PRODUCTS = gql`
           productTags {
             nodes {
               name
+            }
+          }
+          allPaMinAantalSpelers {
+            nodes {
+              name
+              slug
+            }
+          }
+          allPaMaxAantalSpelers {
+            nodes {
+              name
+              slug
+            }
+          }
+          allPaSpeelduur {
+            nodes {
+              name
+              slug
+            }
+          }
+          allPaTaal {
+            nodes {
+              name
+              slug
             }
           }
         }
