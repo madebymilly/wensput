@@ -1,6 +1,6 @@
 function Wish({ wish }) {
   return (
-    <div className="wish">wens...{wish}</div>
+    <div className="Wish">wens...{wish}</div>
   )
 }
 
