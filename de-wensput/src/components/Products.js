@@ -1,4 +1,4 @@
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { GET_PRODUCTS } from '../queries/get-products';
 
 function Products() {
@@ -18,9 +18,9 @@ function Products() {
       <p>Aantal spelers: {allPaMinAantalSpelers.nodes[0].slug}-{allPaMaxAantalSpelers.nodes[0].slug}</p>
       <p>Speelduur: {allPaSpeelduur.nodes[0].slug}</p>
       <p>Taal:{allPaTaal.nodes.length > 0 ?
-          allPaTaal.nodes.map(({ name }) => (
-            <span key={name}> {name}</span>
-          )) : ''
+        allPaTaal.nodes.map(({ name }) => (
+          <span key={name}> {name}</span>
+        )) : ''
       }</p>
       <p>
         Thema's:
