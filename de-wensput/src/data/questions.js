@@ -25,24 +25,28 @@ export const allQuestions = [
     // button1: 'mand! (Doe maar lekker kort)',
     // button2: 'Kan me niet lang genoeg duren'
   },
-  // {
-  //   required: false,
-  //   category: false,
-  //   attribute: 'easy-to-learn',
-  //   condition: 'Yes',
-  //   text: 'Makkelijk te leren of lekker de regels in duiken?',
-  //   button1: 'Easy to learn graag!',
-  //   button2: 'Laat mij maar lekker lezen'
-  // },
-  // {
-  //   required: false,
-  //   category: 'educatief',
-  //   attribute: false,
-  //   condition: false,
-  //   text: 'Wil je er ook iets van opsteken?',
-  //   button1: 'Ik leer graag',
-  //   button2: 'Gewoon spelen'
-  // },
+  {
+    required: false,
+    category: false,
+    attribute: 'easy-to-learn',
+    condition: 'Yes',
+    text: 'Makkelijk te leren of lekker de regels in duiken?',
+	 button1: { name: 'Easy to learn', attributes: { tag: 'easy-to-learn' } },
+	 button2: { name: 'Lekker lezen', attributes: { category: 'expert' } }
+   //  button1: 'Easy to learn graag!',
+   //  button2: 'Laat mij maar lekker lezen'
+  },
+  {
+    required: false,
+    category: 'educatief',
+    attribute: false,
+    condition: false,
+    text: 'Wil je er ook iets van opsteken?',
+	 button1: { name: 'Ik leer graag', attributes: { tag: 'educatief' } },
+	 button2: { name: 'Ik speel graag', attributes: {} },
+   //  button1: 'Ik leer graag',
+   //  button2: 'Gewoon spelen'
+  },
   // {
   //   required: false,
   //   category: 'escape_puzzel',

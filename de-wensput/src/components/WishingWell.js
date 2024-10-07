@@ -14,7 +14,7 @@ import { allQuestions } from '../data/questions'
 
 function WishingWell() {
 
-  const settings = { numberOfQuestions: 3 }
+  const settings = { numberOfQuestions: 5 }
 
   const [start, setStart] = useState(false)
   const [questions, setQuestions] = useState(false)
@@ -69,15 +69,21 @@ function WishingWell() {
       const categoryFilter = answers.category && product.productCategories.nodes.some(node => node.slug === answers.category); // TODO: zijn er meer vragen met category?
       const themaFilter = answers.theme && product.allPaThema.nodes.some(node => node.slug === answers.theme);
       const tagFilter = answers.tag && product.productTags.nodes.some(node => node.slug === answers.tag);
-      //const durationFilter = answers.duration && answers.duration.some(duration => product.allPaSpeelduur.nodes === duration); // Controleer of de speelduur overeenkomt
-      const durationFilter = answers.duration && product.allPaSpeelduur.nodes.find(); // Controleer of de speelduur overeenkomt
+		const durationFilter = answers.duration.some(item =>
+			product.allPaSpeelduur.nodes.some(obj => obj.name === item)
+		);
 
 
-      return ageFilter !== undefined && playersFilter !== undefined && categoryFilter && themaFilter && tagFilter;
-      //return durationFilter;
+		// !!! Let op: category and tags worden overschrijven als het later nog een keer gevragad wordt.
+		// Oplossing voor verzinnen!
+		console.log(answers)
+		console.log(product.productCategories.nodes)
+
+      //return ageFilter !== undefined && playersFilter !== undefined && categoryFilter && themaFilter && tagFilter && durationFilter;
+      return tagFilter;
     });
 
-    console.log(answers);
+
 
     if (filteredProducts.length === 0) {
       setWish(false);
