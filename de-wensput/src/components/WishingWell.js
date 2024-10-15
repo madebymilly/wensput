@@ -48,7 +48,7 @@ function WishingWell() {
 
         : <Start handleClick={handleStartClick} />
       }
-      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} />
+      <AudioPlayer audioSrc="./../audio/bg.mp3" play={start} volume={0.5} />
 
       {/*<div className="test">
          <Products />
