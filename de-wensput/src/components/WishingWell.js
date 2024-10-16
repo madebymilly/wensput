@@ -36,6 +36,7 @@ function WishingWell() {
   if (error) return <p>Error: {error.message}</p>;
 
   const products = data.products.nodes;
+  console.log('products:', products);
 
   return (
     <div className="Wishingwell">
@@ -48,7 +49,7 @@ function WishingWell() {
 
         : <Start handleClick={handleStartClick} />
       }
-      <AudioPlayer audioSrc="./../audio/bg.mp3" play={start} volume={0.5} />
+      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} />
 
       {/*<div className="test">
          <Products />
@@ -61,8 +62,10 @@ function WishingWell() {
     // Filter on products
     const filteredProducts = products.filter(product => {
       // TODO: ook checken of audio file beschikbaar is!!!
-      // const hasAudio = product.metaData && product.metaData[0].value; // Controleer of er audio in metaData is
-      // if (!hasAudio) return false; // Als er geen audio is, stop dan meteen met filteren
+      const hasAudio = product.metaData && product.metaData[0].value; // Controleer of er audio in metaData is
+      if (!hasAudio) return false; // Als er geen audio is, stop dan meteen met filteren
+
+
 
       const ageFilter = answers.age && product.allPaLeeftijd.nodes.find(node => parseInt(node.slug) >= answers.age);
       const playersFilter = answers.players && product.allPaMinAantalSpelers.nodes.find(node => parseInt(node.slug) >= answers.players);
@@ -76,11 +79,12 @@ function WishingWell() {
 
 		// !!! Let op: category and tags worden overschrijven als het later nog een keer gevragad wordt.
 		// Oplossing voor verzinnen!
-		console.log(answers)
-		console.log(product.productCategories.nodes)
+		// console.log(answers)
+		// console.log(product.productCategories.nodes)
 
       //return ageFilter !== undefined && playersFilter !== undefined && categoryFilter && themaFilter && tagFilter && durationFilter;
       return tagFilter;
+		//return product;
     });
 
 

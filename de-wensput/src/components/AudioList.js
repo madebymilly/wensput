@@ -1,6 +1,6 @@
 const AudioList = () => {
 
-  const audio = require.context('../../public/audio', true);
+  const audio = require.context('../../public/audio/games', true);
 
   return (
     <>
