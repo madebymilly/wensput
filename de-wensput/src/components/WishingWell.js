@@ -6,7 +6,7 @@ import Question from './Question'
 import Start from './Start'
 import End from './End'
 import AudioPlayer from './AudioPlayer'
-import Products from './Products'
+// import Products from './Products'
 
 import { getRandomItems } from '../js/helpers'
 
@@ -36,7 +36,7 @@ function WishingWell() {
   if (error) return <p>Error: {error.message}</p>;
 
   const products = data.products.nodes;
-  console.log('products:', products);
+  //console.log('products:', products);
 
   return (
     <div className="Wishingwell">
@@ -49,7 +49,7 @@ function WishingWell() {
 
         : <Start handleClick={handleStartClick} />
       }
-      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} />
+      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} loop={true}/>
 
       {/*<div className="test">
          <Products />
@@ -59,6 +59,7 @@ function WishingWell() {
   )
 
   function getWish() {
+
     // Filter on products
     const filteredProducts = products.filter(product => {
       // TODO: ook checken of audio file beschikbaar is!!!
@@ -76,14 +77,10 @@ function WishingWell() {
 			product.allPaSpeelduur.nodes.some(obj => obj.name === item)
 		);
 
-
-		// !!! Let op: category and tags worden overschrijven als het later nog een keer gevragad wordt.
-		// Oplossing voor verzinnen!
-		// console.log(answers)
-		// console.log(product.productCategories.nodes)
+		console.log('answers: ', answers)
 
       //return ageFilter !== undefined && playersFilter !== undefined && categoryFilter && themaFilter && tagFilter && durationFilter;
-      return tagFilter;
+      return ageFilter;
 		//return product;
     });
 
@@ -97,15 +94,34 @@ function WishingWell() {
   }
 
   function handleAnswerClick(attributes) {
-    setAnswers(prevState => ({
-      ...prevState, // Keep the original properties
-      ...attributes
-    }));
+		console.log(attributes)
+
+		setAnswers(prevState => {
+			// Create a copy of the current state
+			const newState = { ...prevState };
+
+			// Iterate over the keys in attributes
+			for (const key in attributes) {
+				if (attributes.hasOwnProperty(key)) {
+				// Check if the key already exists in the state
+				if (newState[key]) {
+					// Combine the arrays and remove duplicates
+					newState[key] = [...new Set([...newState[key], ...attributes[key]])];
+				} else {
+					// Add the new key-value pair
+					newState[key] = attributes[key];
+				}
+			}
+		}
+
+		return newState;
+	});
+
+	// Go to next question
+	setCurrentQuestionId(currentQuestionId + 1);
+}
 
 
-    // Go to next question
-    setCurrentQuestionId(currentQuestionId + 1)
-  }
 
   function handleStartClick() {
 

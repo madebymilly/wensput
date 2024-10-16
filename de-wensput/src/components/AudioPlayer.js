@@ -1,9 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 
-const AudioPlayer = ({ audioSrc, play, volume, timeout }) => {
+const AudioPlayer = ({ audioSrc, play, volume, timeout, loop }) => {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  console.log(audioSrc)
+  console.log(loop)
   //const [volume, setVolume] = useState(1); // Volume variëren van 0 tot 1
 
   // Functie om audio af te spelen of te pauzeren en volume aan te passen
@@ -39,7 +39,7 @@ const AudioPlayer = ({ audioSrc, play, volume, timeout }) => {
 
   return (
     <div>
-      <audio ref={audioRef} src={audioSrc} loop />
+      <audio ref={audioRef} src={audioSrc} loop={loop} />
     </div>
   );
 };
