@@ -24,11 +24,11 @@ if (process.platform === 'linux') {
 
 app.use(express.json());
 
-// app.listen(port, () => {
-//   console.log(`Server draait op http://localhost:${port}`);
-// });
+app.listen(port, () => {
+  console.log(`Server draait op http://localhost:${port}`);
+});
 
 // Start de server op 0.0.0.0 zodat het netwerktoegang toestaat
-app.listen(port, '0.0.0.0', () => {
-  console.log(`GPIO-server draait op http://0.0.0.0:${port}`);
-});
+// app.listen(port, '0.0.0.0', () => {
+//   console.log(`GPIO-server draait op http://0.0.0.0:${port}`);
+// });
