@@ -11,6 +11,7 @@ import Products from './Products'
 import { getRandomItems } from '../js/helpers'
 
 import { allQuestions } from '../data/questions'
+import LedController from './LedController';
 
 function WishingWell() {
 
@@ -53,7 +54,8 @@ function WishingWell() {
 
         : <Start handleClick={handleStartClick} />
       }
-      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} loop={true}/>
+      <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} loop={true} />
+      <LedController />
 
       {/* <div className="test">
          <Products />

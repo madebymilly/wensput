@@ -1,7 +1,7 @@
 import AudioList from './AudioList'
 import Button from './Button'
 
-function Start({ handleClick }) {
+function Start({ handleClick, handleClickLed }) {
 
   return (
     <div className="Start">
