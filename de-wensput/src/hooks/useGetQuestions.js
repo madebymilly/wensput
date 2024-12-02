@@ -2,8 +2,6 @@ import { getRandomItems } from '../js/helpers'
 
 function useGetQuestions(allQuestions, numberOfQuestions) {
 
-  const settings = { numberOfQuestions: 5 }
-
   // Filter required questions:
   const requiredQuestions = allQuestions.filter(question => question.required)
 

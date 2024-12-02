@@ -1,18 +1,13 @@
-import { useQuery } from '@apollo/client';
-import { GET_PRODUCTS } from '../queries/get-products';
+import useGetProducts from '../../hooks/useGetProducts';
 
 function Products() {
-  const { loading, error, data } = useQuery(GET_PRODUCTS);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
-  const products = data.products.nodes;
+  const products = useGetProducts();
 
   console.log(products)
 
   return products.map(({ id, name, allPaLeeftijd, allPaMinAantalSpelers, allPaMaxAantalSpelers, allPaSpeelduur, allPaTaal, allPaThema, productCategories, productTags, slug }) => (
-    <div key={id} style={{ padding: '20px', border: '2px solid red' }}>
+    <div key={id} style={{ padding: '20px' }}>
       <h3>{name}</h3>
       <h4>Slug: {slug}</h4>
       <h5>Audio-file: '/audio/games/{slug}.mp3'</h5>

@@ -1,16 +1,15 @@
 const AudioList = () => {
 
-  const audio = require.context('../../public/audio/games', true);
+  const audio = require.context('../../../public/audio/games', true);
 
   return (
-    <>
-      <h2>Audio files:</h2>
-      <ul>
+    <div class="AudioList">
+      <ul style={{listStyle: 'none'}}>
       {audio.keys().map((file, i) => (
         <li key={i}>{file.substring(2)}</li>
       ))}
       </ul>
-    </>
+    </div>
   );
 }
 

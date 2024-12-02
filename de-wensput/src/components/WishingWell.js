@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react'
 
-
 import Question from './Question'
 import Start from './Start'
 import End from './End'
 import AudioPlayer from './AudioPlayer'
-import Products from './Products'
+
+import Test from './test-components/Test'
 
 import { getRandomItems } from '../js/helpers'
 import { filterProducts } from '../js/filterProducts'
 
 import { allQuestions } from '../data/questions'
-import LedController from './LedController';
 
 import useGetProducts from '../hooks/useGetProducts';
 import useGetQuestions from '../hooks/useGetQuestions';
@@ -47,13 +46,10 @@ function WishingWell() {
 
         : <Start handleClick={handleStartClick} />
       }
+
       <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} loop={true} />
-      <LedController />
 
-      <div className="test">
-         <Products />
-      </div>
-
+      <Test />
     </div>
   )
 

@@ -59,8 +59,7 @@ const LedController = () => {
   };
 
   return (
-    <div>
-      <h1>LED Controller</h1>
+    <div className="LedController">
       <button onClick={() => sendCommand(dataBlue)}>Zet LED op blauw</button>
       <button onClick={() => sendCommand(dataRed)}>Zet LED op rood</button>
       <button onClick={() => sendCommand(dataTwinkle)}>Zet LED op TWINKLE</button>
