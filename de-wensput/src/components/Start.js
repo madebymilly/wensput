@@ -7,7 +7,7 @@ function Start({ handleClick, handleClickLed }) {
     <div className="Start">
       <h1>Klaar voor wat spelletjes-magie?</h1>
       <Button onClick={handleClick}>Start</Button>
-      {/* <AudioList /> */}
+      <AudioList />
     </div>
   )
 }

@@ -57,9 +57,9 @@ function WishingWell() {
       <AudioPlayer audioSrc="/audio/bg.mp3" play={start} volume={0.5} loop={true} />
       <LedController />
 
-      {/* <div className="test">
+      <div className="test">
          <Products />
-      </div> */}
+      </div>
 
     </div>
   )

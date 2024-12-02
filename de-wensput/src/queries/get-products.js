@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const GET_PRODUCTS = gql`
   query GetProducts {
-    products(where: {stockStatus: IN_STOCK}) {
+    products(where: {stockStatus: IN_STOCK, taxonomyFilter: {filters: {taxonomy: PA_AUDIO, terms: "true"}}}) {
       nodes {
         id
         name
@@ -61,6 +61,7 @@ export const GET_PRODUCTS = gql`
               slug
             }
           }
+          slug
         }
       }
     }
