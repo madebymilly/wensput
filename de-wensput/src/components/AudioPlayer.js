@@ -37,7 +37,7 @@ const AudioPlayer = ({ audioSrc, play, volume, timeout, loop }) => {
   }, [play]);
 
   return (
-    <div class="AudioPlayer">
+    <div className="AudioPlayer">
       <audio ref={audioRef} src={audioSrc} loop={loop} />
     </div>
   );

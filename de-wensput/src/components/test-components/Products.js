@@ -1,11 +1,4 @@
-import useGetProducts from '../../hooks/useGetProducts';
-
-function Products() {
-
-  const products = useGetProducts();
-
-  console.log(products)
-
+function Products({products}) {
   return products.map(({ id, name, allPaLeeftijd, allPaMinAantalSpelers, allPaMaxAantalSpelers, allPaSpeelduur, allPaTaal, allPaThema, productCategories, productTags, slug }) => (
     <div key={id} style={{ padding: '20px' }}>
       <h3>{name}</h3>

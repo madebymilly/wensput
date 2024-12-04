@@ -1,12 +1,15 @@
+import { allQuestions } from '../data/questions'
 import { getRandomItems } from '../js/helpers'
 
-function useGetQuestions(allQuestions, numberOfQuestions) {
+import { NUM_OF_Q } from '../config/settings';
+
+function useGetQuestions() {
 
   // Filter required questions:
   const requiredQuestions = allQuestions.filter(question => question.required)
 
   // Filter unrequired questions, get as many as settings.numberOfQuestions minus number of required questions:
-  const randomQuestions = getRandomItems(allQuestions.filter(question => !question.required), numberOfQuestions - requiredQuestions.length)
+  const randomQuestions = getRandomItems(allQuestions.filter(question => !question.required), NUM_OF_Q - requiredQuestions.length)
 
   // Combine required and unrequired questions + shuffle:
   const questions = requiredQuestions.concat(randomQuestions)
