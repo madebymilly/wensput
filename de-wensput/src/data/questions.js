@@ -2,21 +2,27 @@ export const allQuestions = [
     {
     required: true,
     text: 'Met wie wil je een spel spelen?',
-    button1: { name: 'Kinderen', attributes: { age: 4, category: ['kids'] } },
-    button2: { name: 'Volwassenen', attributes: { age: 12 } },
-    button3: { name: 'Familie', attributes: { age: 6, category: ['familie'] } }
+    buttons: [
+      { name: 'Kinderen', attributes: { age: 4, category: ['kids'] } },
+      { name: 'Volwassenen', attributes: { age: 12 } },
+      { name: 'Familie', attributes: { age: 6, category: ['familie'] } }
+    ],
   },
   {
     required: true,
     text: 'Speel je graag solo of met tegenstanders?',
-    button1: { name: 'Solo', attributes: { tag: ['solo'] } },
-    button2: { name: 'Tegenstanders', attributes: { players: 2 } },
+    buttons: [
+      { name: 'Solo', attributes: { tag: ['solo'] } },
+      { name: 'Tegenstanders', attributes: { players: 2 } },
+    ],
   },
   {
     required: true,
     text: 'Houd je van korte snelle spellen of zit je graag lang aan tafel?',
-    button1: { name: 'Mand! (Kort en snel)', attributes: { duration: ['1-15', '15-30']} },
-    button2: { name: 'Kan me niet lang genoeg duren', attributes: { duration: ['30-45', '45-60', '60-90', '90-120', '120']} }
+    buttons: [
+      { name: 'Mand! (Kort en snel)', attributes: { duration: ['1-15', '15-30'] } },
+      { name: 'Kan me niet lang genoeg duren', attributes: { duration: ['30-45', '45-60', '60-90', '90-120', '120']} }
+    ],
   },
   {
     required: false,
@@ -24,8 +30,10 @@ export const allQuestions = [
     attribute: 'easy-to-learn',
     condition: 'Yes',
     text: 'Makkelijk te leren of lekker de regels in duiken?',
-    button1: { name: 'Easy to learn', attributes: { tag: ['easy-to-learn'] } },
-    button2: { name: 'Lekker lezen', attributes: { category: ['expert'] } }
+    buttons: [
+      { name: 'Easy to learn', attributes: { tag: ['easy-to-learn'] } },
+      { name: 'Lekker lezen', attributes: { category: ['expert'] } }
+    ],
   },
   {
     required: false,
@@ -33,8 +41,10 @@ export const allQuestions = [
     attribute: false,
     condition: false,
     text: 'Wil je er ook iets van opsteken?',
-    button1: { name: 'Ik leer graag', attributes: { tag: ['educatief'] } },
-    button2: { name: 'Ik speel graag', attributes: {} },
+    buttons: [
+      { name: 'Ik leer graag', attributes: { tag: ['educatief'] } },
+      { name: 'Ik speel graag', attributes: {} },
+    ],
   },
   // {
   //   required: false,
