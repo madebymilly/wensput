@@ -1,11 +1,24 @@
+/*
+* GraphQL query needs WPGraphQL for WooCommerce plugin to be installed and activated
+* Products items marked as features have an audio file.
+*/
+
 import { gql } from '@apollo/client';
 
 export const GET_PRODUCTS = gql`
-  query GetProducts {
-  products(where: {stockStatus: IN_STOCK, featured: true}) {
+query GetProducts {
+  products(
+    where: {
+      stockStatus: IN_STOCK,
+      featured: true,
+      tagNotIn: "Uitbreidingen"
+    },
+    first: 99999
+  ) {
     nodes {
       id
       name
+      slug
       ... on SimpleProduct {
         id
         name
@@ -39,12 +52,6 @@ export const GET_PRODUCTS = gql`
             slug
           }
         }
-        allPaMaxAantalSpelers {
-          nodes {
-            name
-            slug
-          }
-        }
         allPaSpeelduur {
           nodes {
             name
@@ -57,7 +64,6 @@ export const GET_PRODUCTS = gql`
             slug
           }
         }
-        slug
       }
     }
   }

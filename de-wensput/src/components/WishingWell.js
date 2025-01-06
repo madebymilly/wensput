@@ -7,7 +7,7 @@ import AudioPlayer from './AudioPlayer'
 
 import Test from './test-components/Test'
 
-import { getRandomItems } from '../js/helpers'
+// import { getRandomItems } from '../js/helpers'
 import { filterProducts } from '../js/filterProducts'
 
 import useGetProducts from '../hooks/useGetProducts';
@@ -31,7 +31,6 @@ function WishingWell() {
   }, [currentQuestionId]);
 
 
-  //const products = useGetProducts();
   const { loading, error, products } = useGetProducts();
   const questions = useGetQuestions();
 
@@ -78,14 +77,14 @@ function WishingWell() {
 
   function getWish() {
 
-    console.log('all answers: ', answers)
-
     const filteredProducts = filterProducts(products, answers);
+    // TODO: Checken of audio file beschikbaar is!!!
 
     if (filteredProducts.length === 0) {
       setWish(false);
     } else {
-      setWish(getRandomItems(filteredProducts, 1));
+      // Get first item (because is sorted)
+      setWish(filteredProducts[0]);
     }
   }
 

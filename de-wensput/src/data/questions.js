@@ -1,51 +1,64 @@
 export const allQuestions = [
-    {
-    required: true,
-    text: 'Met wie wil je een spel spelen?',
-    buttons: [
-      { name: 'Kinderen', attributes: { age: 4, category: ['kids'] } },
-      { name: 'Volwassenen', attributes: { age: 12 } },
-      { name: 'Familie', attributes: { age: 6, category: ['familie'] } }
-    ],
-  },
   {
     required: true,
-    text: 'Speel je graag solo of met tegenstanders?',
+    text: 'Is het tijd voor een spelletje met of zonder kids?',
     buttons: [
-      { name: 'Solo', attributes: { tag: ['solo'] } },
-      { name: 'Tegenstanders', attributes: { players: 2 } },
+      { name: 'Met kids', attributes: { category: ['familie', 'kids'] } },
+      { name: 'zonder kids', attributes: { nonCategory: ['kids'] } },
     ],
   },
   {
     required: true,
-    text: 'Houd je van korte snelle spellen of zit je graag lang aan tafel?',
+    text: 'Coop?',
     buttons: [
-      { name: 'Mand! (Kort en snel)', attributes: { duration: ['1-15', '15-30'] } },
-      { name: 'Kan me niet lang genoeg duren', attributes: { duration: ['30-45', '45-60', '60-90', '90-120', '120']} }
+      { name: 'Wel coop', attributes: { tag: ['cooperatief'] } },
+      { name: 'Niet coop', attributes: { nonTag: ['cooperatief'] } },
     ],
   },
   {
-    required: false,
-    category: false,
-    attribute: 'easy-to-learn',
-    condition: 'Yes',
-    text: 'Makkelijk te leren of lekker de regels in duiken?',
+    required: true,
+    text: 'Educatief?',
     buttons: [
-      { name: 'Easy to learn', attributes: { tag: ['easy-to-learn'] } },
-      { name: 'Lekker lezen', attributes: { category: ['expert'] } }
+      { name: 'Educatief', attributes: { sort: ['educatief'] } },
+      { name: 'Hoeft niet edu' },
     ],
   },
   {
-    required: false,
-    category: 'educatief',
-    attribute: false,
-    condition: false,
-    text: 'Wil je er ook iets van opsteken?',
+    required: true,
+    text: 'Solo?',
     buttons: [
-      { name: 'Ik leer graag', attributes: { tag: ['educatief'] } },
-      { name: 'Ik speel graag', attributes: {} },
-    ],
+      { name: 'Ook Solo', attributes: { players: 1 } },
+      { name: 'Minimaal 2' },
+    ]
   },
+  // SOLO met aantal spelers doen
+  // {
+  //   required: true,
+  //   text: 'Speel je graag solo of met tegenstanders?',
+  //   buttons: [
+  //     { name: 'Solo', attributes: { tag: ['solo'] } },
+  //     { name: 'Tegenstanders', attributes: { nonTag: ['solo'] } },
+  //   ],
+  // },
+  // {
+  //   required: true,
+  //   text: 'Houd je van korte snelle spellen of zit je graag lang aan tafel?',
+  //   buttons: [
+  //     { name: 'Mand! (Kort en snel)', attributes: { duration: ['1-15', '15-30'] } },
+  //     { name: 'Kan me niet lang genoeg duren', attributes: { duration: ['30-45', '45-60', '60-90', '90-120', '120']} }
+  //   ],
+  // },
+  // {
+  //   required: false,
+  //   category: 'educatief',
+  //   attribute: false,
+  //   condition: false,
+  //   text: 'Wil je er ook iets van opsteken?',
+  //   buttons: [
+  //     { name: 'Ik leer graag', attributes: { tag: ['educatief'] } },
+  //     { name: 'Ik speel graag', attributes: {} },
+  //   ],
+  // },
   // {
   //   required: false,
   //   category: 'escape_puzzel',
