@@ -1,0 +1,12 @@
+# Waar is dit voor?
+
+Dit python script get_audio_txt_files.py, kan  txt bestanden generen voor ElevenLabs.
+Dit doet het op basis van alle spel titels in games.txt.
+
+Alle titels kunnen uit de Wensput applicatie gehaald worden.
+In de map met test-componenten zit een Products.js. Daar zit ik ook een lijst met alleen maar titels in.
+
+## Hoe te gebruiken?
+- Zorg dat alle titels naar games.txt worden gekopieerd
+- Run het script door 'python 3 get_audio_txt_files.py' te runnen vanuit deze map in Terminal
+- Upload alle output bestanden naar ElevenLabs
