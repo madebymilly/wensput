@@ -11,7 +11,7 @@ query GetProducts {
     where: {
       stockStatus: IN_STOCK,
       featured: true,
-      tagNotIn: "Uitbreidingen"
+      tagNotIn: "Uitbereidingen"
     },
     first: 99999
   ) {
@@ -22,7 +22,7 @@ query GetProducts {
       ... on SimpleProduct {
         id
         name
-        allPaLeeftijd {
+        allPaBenodigdeSpeelruimte {
           nodes {
             name
             slug

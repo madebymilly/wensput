@@ -7,19 +7,16 @@ import AudioPlayer from './AudioPlayer'
 
 import Test from './test-components/Test'
 
-// import { getRandomItems } from '../js/helpers'
+import { shuffle } from '../js/helpers'
 import { filterProducts } from '../js/filterProducts'
-
-import useGetProducts from '../hooks/useGetProducts';
-import useGetQuestions from '../hooks/useGetQuestions';
 
 import { APP_NAME, NUM_OF_Q } from '../config/settings';
 
-function WishingWell() {
+function WishingWell({ allProducts, questions }) {
 
   const [started, setStarted] = useState(false)
   const [ended, setEnded] = useState(false)
-  const [answers, setAnswers] = useState({})
+  const [products, setProducts] = useState([])
   const [currentQuestionId, setCurrentQuestionId] = useState(1)
   const [wish, setWish] = useState({})
 
@@ -30,21 +27,14 @@ function WishingWell() {
     }
   }, [currentQuestionId]);
 
-
-  const { loading, error, products } = useGetProducts();
-  const questions = useGetQuestions();
-
-  if (loading) {
-      return <p>Loading...</p>; // Show a loading message or spinner
-  }
-
-  if (error) {
-      return <p>Error: {error.message}</p>; // Show an error message
-  }
-
-  if (products.length === 0) {
-      return <p>No products found.</p>; // Handle empty product list
-  }
+  useEffect(() => {
+    // Shuffle and filter products on audio file:
+    const newProducts = shuffle([...allProducts]).filter(product => {
+      const audioFile = true; // TODO
+      return audioFile;
+    });
+    setProducts(newProducts);
+  }, [allProducts]);
 
   return (
     <div className="Wishingwell">
@@ -76,43 +66,24 @@ function WishingWell() {
   };
 
   function getWish() {
-
-    const filteredProducts = filterProducts(products, answers);
-    // TODO: Checken of audio file beschikbaar is!!!
-
-    if (filteredProducts.length === 0) {
-      setWish(false);
+    if (products.length > 0) {
+      setWish(products[0]); // Get the first item of products, because is sorted and shuffled
     } else {
-      // Get first item (because is sorted)
-      setWish(filteredProducts[0]);
+      setWish(false);
     }
   }
 
-  function handleAnswerClick(attributes) {
+  function handleAnswerClick(answer) {
 
-		setAnswers(prevState => {
-			// Create a copy of the current state
-			const newState = { ...prevState };
+    // Filter products based on answer:
+    const filteredProducts = filterProducts(products, answer);
 
-			// Iterate over the keys in attributes
-			for (const key in attributes) {
-          if (attributes.hasOwnProperty(key)) {
-          // Check if the key already exists in the state
-          if (newState[key]) {
-            // Combine the arrays and remove duplicates
-            newState[key] = [...new Set([...newState[key], ...attributes[key]])];
-          } else {
-            // Add the new key-value pair
-            newState[key] = attributes[key];
-          }
-        }
-      }
+    // Set state of products:
+    setProducts(filteredProducts);
 
-      return newState;
-    });
-
-    // Go to next question
+    // Go to next question:
     setCurrentQuestionId(currentQuestionId + 1);
+
   }
 
   function handleStartClick() {
