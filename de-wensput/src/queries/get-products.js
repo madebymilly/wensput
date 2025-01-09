@@ -11,7 +11,7 @@ query GetProducts {
     where: {
       stockStatus: IN_STOCK,
       featured: true,
-      tagNotIn: "Uitbereidingen"
+      tagNotIn: "Uitbreidingen"
     },
     first: 99999
   ) {

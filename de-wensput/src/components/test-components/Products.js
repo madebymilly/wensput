@@ -42,6 +42,10 @@ function Products({ products }) {
           </p>
         </div>
       ))}
+      <h2>Only titels:</h2>
+      {products.map(({ id, name = '' }) => (
+          <div key={id}>{name}</div>
+      ))}
     </>
   );
 }
