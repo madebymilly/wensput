@@ -4,21 +4,23 @@ import Question from './Question'
 import Start from './Start'
 import End from './End'
 import AudioPlayer from './AudioPlayer'
-
 import Test from './test-components/Test'
 
 import { shuffle } from '../js/helpers'
 import { filterProducts } from '../js/filterProducts'
+import { checkAudioFile } from '../js/checkAudioFile'
+import { getQuestions } from '../js/getQuestions'
 
 import { APP_NAME, NUM_OF_Q } from '../config/settings';
 
-function WishingWell({ allProducts, questions }) {
+function WishingWell({ allProducts }) {
 
   const [started, setStarted] = useState(false)
   const [ended, setEnded] = useState(false)
   const [products, setProducts] = useState([])
   const [currentQuestionId, setCurrentQuestionId] = useState(1)
   const [wish, setWish] = useState({})
+  const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     if (currentQuestionId > NUM_OF_Q) {
@@ -27,16 +29,7 @@ function WishingWell({ allProducts, questions }) {
     }
   }, [currentQuestionId]);
 
-  useEffect(() => { // TODO: verhuizen naar js folder
-    const checkAudioFile = async (slug) => {
-      const response = await fetch(`/audio/games/${slug}.mp3`);
-      if (response.ok && response.headers.get('Content-Type') === 'audio/mpeg') {
-        return true;
-      } else {
-        return false;
-      }
-    };
-
+  useEffect(() => {
     const filterProductsWithAudio = async () => {
       const newProducts = await Promise.all(
         shuffle([...allProducts]).map(async (product) => {
@@ -47,19 +40,14 @@ function WishingWell({ allProducts, questions }) {
 
       setProducts(newProducts.filter(Boolean));
     };
-
     filterProductsWithAudio();
   }, [allProducts]);
 
-
-
-
   return (
     <div className="Wishingwell">
-      <h1>{APP_NAME}</h1>
       {renderContent()}
-      <AudioPlayer audioSrc="/audio/bg.mp3" play={started} volume={0.5} loop={true} />
-      <Test products={products} />
+      <AudioPlayer audioSrc="/audio/bg.mp3" play={started} volume={0.3} loop={true} />
+      {/* <Test products={products} /> */}
     </div>
   )
 
@@ -102,14 +90,22 @@ function WishingWell({ allProducts, questions }) {
     // Go to next question:
     setCurrentQuestionId(currentQuestionId + 1);
 
+    console.log(answer)
+
   }
 
   function handleStartClick() {
     setStarted(true)
+    setQuestions(getQuestions())
+
+    console.log(products)
   }
 
   function handleEndClick() {
     setStarted(false)
+    setCurrentQuestionId(1)
+    setEnded(false)
+    setWish({})
   }
 }
 

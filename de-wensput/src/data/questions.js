@@ -4,7 +4,7 @@ export const allQuestions = [
     text: 'Is het tijd voor een spelletje met of zonder kids?',
     buttons: [
       { name: 'Met kids', attributes: { category: ['familie', 'kids'] } },
-      { name: 'zonder kids', attributes: { nonCategory: ['kids'] } },
+      { name: 'Zonder kids', attributes: { nonCategory: ['kids'] } },
     ],
   },
   {
@@ -44,8 +44,8 @@ export const allQuestions = [
     required: false,
     text: 'Liever een lang spelen, of veel kleintjes achter elkaar?',
     buttons: [
-      { name: 'Ik ga voor kort (Mand!)', attributes: { duration: ['1-15', '15-30'] } },
-      { name: 'Het kan me niet lang genoeg duren!', attributes: { duration: ['30-45', '45-60', '60-90', '90-120', '120']} }
+      { name: 'Het kan me niet lang genoeg duren!', attributes: { duration: ['30-45', '45-60', '60-90', '90-120', '120'] } },
+      { name: 'Ik ga voor kort (Mand!)', attributes: { duration: ['1-15', '15-30'] } }
     ],
   },
   {

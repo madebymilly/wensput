@@ -2,11 +2,9 @@ import './App.scss'
 import WishingWell from './components/WishingWell'
 
 import useGetProducts from './hooks/useGetProducts';
-import useGetQuestions from './hooks/useGetQuestions';
 
 function App() {
   const { loading, error, products } = useGetProducts();
-  const questions = useGetQuestions();
 
   if (loading) {
       return <p>Loading...</p>; // Show a loading message or spinner
@@ -22,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <WishingWell allProducts={products} questions={questions}  />
+      <WishingWell allProducts={products} />
     </div>
   );
 }

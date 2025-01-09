@@ -18,21 +18,27 @@ function End({ wish, handleClick }) {
 	useEffect(() => {
         const fakeClickTimer = setTimeout(() => {
             handleClick();
-        }, 8000);
+        }, 20000);
         return () => clearTimeout(fakeClickTimer);
     }, [handleClick]);
 
 	return (
 		<div className="End">
 			<h2>Jouw wens:</h2>
-      {wish
-				? <h1>{wish.name} / {wish.slug}</h1>
-        : <p>Geen spel gevonden</p>
+			{wish ?
+				<>
+					<h1>{wish.name} / {wish.slug}</h1>
+					<AudioPlayer audioSrc="/audio/wens.mp3" play={true} volume={1} timeout={1000} loop={false} />
+					<AudioPlayer audioSrc={`/audio/games/${wish.slug}.mp3`} play={true} volume={1} timeout={2700} loop={false} />
+				</> :
+        <>
+					<p>Je wens kan helaas niet uitkomen. Probeer het nog eens!</p>
+					<AudioPlayer audioSrc="/audio/geen-wens.mp3" play={true} volume={1} timeout={1000} loop={false} />
+				</>
 			}
-			<AudioPlayer audioSrc="/audio/wens.mp3" play={true} volume={1} timeout={1000} loop={false} />
-			<AudioPlayer audioSrc={`/audio/games/${wish.slug}.mp3`} play={true} volume={1} timeout={2700} loop={false} />
 
-			{showElement && (<div className="Again">
+
+			{showElement && (<div>
 				<h3>Wil je opnieuw wensen?</h3>
 				<Button onClick={handleClick}>Ik wens...</Button>
 			</div>)}

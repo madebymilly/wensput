@@ -3,7 +3,7 @@ import { getRandomItems, shuffle } from '../js/helpers'
 
 import { NUM_OF_Q } from '../config/settings';
 
-function useGetQuestions() {
+export function getQuestions() {
 
   // Filter required questions:
   const requiredQuestions = allQuestions.filter(question => question.required)
@@ -20,5 +20,3 @@ function useGetQuestions() {
 
   return questions;
 }
-
-export default useGetQuestions;
