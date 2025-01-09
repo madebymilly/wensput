@@ -36,6 +36,7 @@ function WishingWell({ allProducts, questions }) {
     setProducts(newProducts);
   }, [allProducts]);
 
+
   return (
     <div className="Wishingwell">
       <h1>{APP_NAME}</h1>
@@ -50,7 +51,7 @@ function WishingWell({ allProducts, questions }) {
       return <Start handleClick={handleStartClick} />;
     }
     if (ended) {
-      return <End wish={wish} />;
+      return <End wish={wish} handleClick={handleEndClick} />;
     }
     return questions
       .filter(question => question.id === currentQuestionId)
@@ -88,6 +89,10 @@ function WishingWell({ allProducts, questions }) {
 
   function handleStartClick() {
     setStarted(true)
+  }
+
+  function handleEndClick() {
+    setStarted(false)
   }
 }
 
