@@ -27,14 +27,31 @@ function WishingWell({ allProducts, questions }) {
     }
   }, [currentQuestionId]);
 
-  useEffect(() => {
-    // Shuffle and filter products on audio file:
-    const newProducts = shuffle([...allProducts]).filter(product => {
-      const audioFile = true; // TODO
-      return audioFile;
-    });
-    setProducts(newProducts);
+  useEffect(() => { // TODO: verhuizen naar js folder
+    const checkAudioFile = async (slug) => {
+      const response = await fetch(`/audio/games/${slug}.mp3`);
+      if (response.ok && response.headers.get('Content-Type') === 'audio/mpeg') {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    const filterProductsWithAudio = async () => {
+      const newProducts = await Promise.all(
+        shuffle([...allProducts]).map(async (product) => {
+          const audioFileExists = await checkAudioFile(product.slug);
+          return audioFileExists ? product : null;
+        })
+      );
+
+      setProducts(newProducts.filter(Boolean));
+    };
+
+    filterProductsWithAudio();
   }, [allProducts]);
+
+
 
 
   return (
