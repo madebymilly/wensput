@@ -7,6 +7,8 @@ import AudioPlayer from './AudioPlayer'
 import Test from './test-components/Test'
 
 import { shuffle } from '../js/helpers'
+import { turnLedOff, addSlowTwinkle, addMediumTwinkle, addFastTwinkle } from '../js/led'
+import { addDefaultSoundAndLight} from '../js/addDefaultSoundAndLight'
 import { filterProducts } from '../js/filterProducts'
 import { checkAudioFile } from '../js/checkAudioFile'
 import { getQuestions } from '../js/getQuestions'
@@ -21,6 +23,12 @@ function WishingWell({ allProducts }) {
   const [currentQuestionId, setCurrentQuestionId] = useState(1)
   const [wish, setWish] = useState({})
   const [questions, setQuestions] = useState([]);
+
+  useEffect(() => {
+    console.log('use effect')
+    addDefaultSoundAndLight();
+    // addSlowTwinkle()
+  }, []);
 
   useEffect(() => {
     if (currentQuestionId > NUM_OF_Q) {
@@ -76,6 +84,7 @@ function WishingWell({ allProducts }) {
   function getWish() {
     if (products.length > 0) {
       setWish(products[0]); // Get the first item of products, because is sorted and shuffled
+       addFastTwinkle()
     } else {
       setWish(false);
     }
@@ -99,6 +108,8 @@ function WishingWell({ allProducts }) {
   function handleStartClick() {
     setStarted(true)
     setQuestions(getQuestions())
+
+    addMediumTwinkle()
 
     console.log(products)
   }
