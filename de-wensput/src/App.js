@@ -7,15 +7,15 @@ function App() {
   const { loading, error, products } = useGetProducts();
 
   if (loading) {
-      return <p>Loading...</p>; // Show a loading message or spinner
+      return <div className="App"><div className="App__loading"><p>Loading new wishes...</p></div></div>; // Show a loading message or spinner
   }
 
   if (error) {
-      return <p>Error: {error.message}</p>; // Show an error message
+      return <div className="App"><div className="App__error"><p>Error: {error.message}</p></div></div>; // Show an error message
   }
 
   if (products.length === 0) {
-      return <p>No products found.</p>; // Handle empty product list
+      return <div className="App"><div className="App__error"><p>No products found.</p></div></div>; // Handle empty product list
   }
 
   return (

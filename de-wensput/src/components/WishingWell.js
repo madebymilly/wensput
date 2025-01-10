@@ -30,15 +30,18 @@ function WishingWell({ allProducts }) {
   }, [currentQuestionId]);
 
   useEffect(() => {
+    console.log('useEffect');
     const filterProductsWithAudio = async () => {
       const newProducts = await Promise.all(
-        shuffle([...allProducts]).map(async (product) => {
+        allProducts.map(async (product) => {
           const audioFileExists = await checkAudioFile(product.slug);
           return audioFileExists ? product : null;
         })
       );
 
-      setProducts(newProducts.filter(Boolean));
+      const shuffledProducts = shuffle(newProducts.filter(Boolean));
+
+      setProducts(shuffledProducts);
     };
     filterProductsWithAudio();
   }, [allProducts]);
@@ -102,10 +105,7 @@ function WishingWell({ allProducts }) {
   }
 
   function handleEndClick() {
-    setStarted(false)
-    setCurrentQuestionId(1)
-    setEnded(false)
-    setWish({})
+    window.location.reload();
   }
 }
 

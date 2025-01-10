@@ -1,0 +1,15 @@
+.App {
+  background-color: lightyellow;
+  width: 100vw;
+  height: 100vh;
+  padding-inline: 2rem;
+  padding-block: 2rem;
+
+  &__loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+  }
+}
