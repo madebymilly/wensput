@@ -15,4 +15,9 @@
     background-color: darkred;
     color: white;
   }
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
 }
