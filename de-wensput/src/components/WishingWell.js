@@ -57,7 +57,7 @@ function WishingWell({ allProducts }) {
     <div className="Wishingwell">
       {renderContent()}
       <AudioPlayer audioSrc="/audio/bg.mp3" play={started} volume={0.3} loop={true} />
-      {/* <Test products={products} /> */}
+      <Test products={products} />
     </div>
   )
 
