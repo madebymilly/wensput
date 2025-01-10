@@ -30,7 +30,6 @@ function WishingWell({ allProducts }) {
   }, [currentQuestionId]);
 
   useEffect(() => {
-    console.log('useEffect');
     const filterProductsWithAudio = async () => {
       const newProducts = await Promise.all(
         allProducts.map(async (product) => {
