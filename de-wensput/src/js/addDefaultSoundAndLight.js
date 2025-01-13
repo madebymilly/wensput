@@ -1,10 +1,12 @@
 import { turnLedOff, addSlowTwinkle } from '../js/led'
 
-export function addDefaultSoundAndLight() {
+let intervalId;
+
+export function startDefaultSoundAndLight() {
 
   addSlowTwinkle();
 
-  setInterval(() => {
+  intervalId = setInterval(() => {
 
     turnLedOff();
     // fadeOutSoundEffect();
@@ -20,6 +22,12 @@ export function addDefaultSoundAndLight() {
   }, 10000); // 10 seconds
 }
 
+export function stopDefaultSoundAndLight() {
+  if (intervalId) {
+    clearInterval(intervalId);
+    console.log('Interval stopped');
+  }
+}
 
 
 

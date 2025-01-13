@@ -4,16 +4,16 @@ import Question from './Question'
 import Start from './Start'
 import End from './End'
 import AudioPlayer from './AudioPlayer'
-import Test from './test-components/Test'
+// import Test from './test-components/Test'
 
 import { shuffle } from '../js/helpers'
-import { turnLedOff, addSlowTwinkle, addMediumTwinkle, addFastTwinkle } from '../js/led'
-import { addDefaultSoundAndLight} from '../js/addDefaultSoundAndLight'
+import { addMediumTwinkle, addFastTwinkle } from '../js/led'
+import { startDefaultSoundAndLight, stopDefaultSoundAndLight } from '../js/addDefaultSoundAndLight'
 import { filterProducts } from '../js/filterProducts'
 import { checkAudioFile } from '../js/checkAudioFile'
 import { getQuestions } from '../js/getQuestions'
 
-import { APP_NAME, NUM_OF_Q } from '../config/settings';
+import { NUM_OF_Q } from '../config/settings';
 
 function WishingWell({ allProducts }) {
 
@@ -25,9 +25,9 @@ function WishingWell({ allProducts }) {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    console.log('use effect')
-    addDefaultSoundAndLight();
-    // addSlowTwinkle()
+    console.log('start default sound and light')
+    startDefaultSoundAndLight();
+    //turnLedOff()
   }, []);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ function WishingWell({ allProducts }) {
     <div className="Wishingwell">
       {renderContent()}
       <AudioPlayer audioSrc="/audio/bg.mp3" play={started} volume={0.3} loop={true} />
-      <Test products={products} />
+      {/* <Test products={products} /> */}
     </div>
   )
 
@@ -84,7 +84,7 @@ function WishingWell({ allProducts }) {
   function getWish() {
     if (products.length > 0) {
       setWish(products[0]); // Get the first item of products, because is sorted and shuffled
-       addFastTwinkle()
+      addFastTwinkle()
     } else {
       setWish(false);
     }
@@ -109,6 +109,7 @@ function WishingWell({ allProducts }) {
     setStarted(true)
     setQuestions(getQuestions())
 
+    stopDefaultSoundAndLight();
     addMediumTwinkle()
 
     console.log(products)

@@ -12,12 +12,15 @@
 
   &:hover,
   &:active {
-    background-color: darkred;
-    color: white;
+    // background-color: darkred;
+    // color: white;
+    outline: none;
+    box-shadow: none;
   }
 
   &:focus,
   &:focus-visible {
     outline: none;
+    box-shadow: none;
   }
 }
