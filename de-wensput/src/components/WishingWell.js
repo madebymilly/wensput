@@ -8,7 +8,7 @@ import Intermezzo from './Intermezzo'
 // import Test from './test-components/Test'
 
 import { shuffle } from '../js/helpers'
-import { addMediumTwinkle, addFastTwinkle } from '../js/led'
+import { addMediumTwinkle, addFastTwinkle, addMultiColor, turnLedOff } from '../js/led'
 // import { startDefaultSoundAndLight, stopDefaultSoundAndLight } from '../js/addDefaultSoundAndLight'
 import { filterProducts } from '../js/filterProducts'
 import { checkAudioFile } from '../js/checkAudioFile'
@@ -52,16 +52,20 @@ function WishingWell({ allProducts }) {
     <div className="Wishingwell">
       {renderContent()}
       <AudioPlayer audioSrc="/audio/music.mp3" play={started} volume={0.4} loop={true} startFrom={60.7} lowerVolume={ended} />
-      <Intermezzo />
+      {/* <Intermezzo /> */}
       {/* <Test products={products} /> */}
     </div>
   )
 
   function renderContent() {
     if (!started) {
+      // turn off leds:
+      turnLedOff();
       return <Start handleClick={handleStartClick} />;
     }
     if (ended) {
+      //addFastTwinkle()
+      addMultiColor() // this is just for testing to see a bigger difference in leds
       return <End wish={wish} handleClick={handleEndClick} />;
     }
     return questions
@@ -80,7 +84,6 @@ function WishingWell({ allProducts }) {
   function getWish() {
     if (products.length > 0) {
       setWish(products[0]); // Get the first item of products, because is sorted and shuffled
-      addFastTwinkle()
     } else {
       setWish(false);
     }
