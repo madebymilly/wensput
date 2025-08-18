@@ -4,11 +4,12 @@ import Question from './Question'
 import Start from './Start'
 import End from './End'
 import AudioPlayer from './AudioPlayer'
+import Intermezzo from './Intermezzo'
 // import Test from './test-components/Test'
 
 import { shuffle } from '../js/helpers'
 import { addMediumTwinkle, addFastTwinkle } from '../js/led'
-import { startDefaultSoundAndLight, stopDefaultSoundAndLight } from '../js/addDefaultSoundAndLight'
+// import { startDefaultSoundAndLight, stopDefaultSoundAndLight } from '../js/addDefaultSoundAndLight'
 import { filterProducts } from '../js/filterProducts'
 import { checkAudioFile } from '../js/checkAudioFile'
 import { getQuestions } from '../js/getQuestions'
@@ -23,12 +24,6 @@ function WishingWell({ allProducts }) {
   const [currentQuestionId, setCurrentQuestionId] = useState(1)
   const [wish, setWish] = useState({})
   const [questions, setQuestions] = useState([]);
-
-  useEffect(() => {
-    console.log('start default sound and light')
-    startDefaultSoundAndLight();
-    //turnLedOff()
-  }, []);
 
   useEffect(() => {
     if (currentQuestionId > NUM_OF_Q) {
@@ -56,7 +51,8 @@ function WishingWell({ allProducts }) {
   return (
     <div className="Wishingwell">
       {renderContent()}
-      <AudioPlayer audioSrc="/audio/bg.mp3" play={started} volume={0.3} loop={true} />
+      <AudioPlayer audioSrc="/audio/music.mp3" play={started} volume={0.4} loop={true} startFrom={60.7} lowerVolume={ended} />
+      <Intermezzo />
       {/* <Test products={products} /> */}
     </div>
   )
@@ -109,7 +105,7 @@ function WishingWell({ allProducts }) {
     setStarted(true)
     setQuestions(getQuestions())
 
-    stopDefaultSoundAndLight();
+    //stopDefaultSoundAndLight();
     addMediumTwinkle()
 
     console.log(products)

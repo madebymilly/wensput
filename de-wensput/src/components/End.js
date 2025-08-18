@@ -28,12 +28,14 @@ function End({ wish, handleClick }) {
 			{wish ?
 				<>
 					<h1>{wish.name} / {wish.slug}</h1>
-					<AudioPlayer audioSrc="/audio/wens.mp3" play={true} volume={1} timeout={1000} loop={false} />
-					<AudioPlayer audioSrc={`/audio/games/${wish.slug}.mp3`} play={true} volume={1} timeout={2700} loop={false} />
+					<AudioPlayer audioSrc="/audio/sound-wish.mp3" play={true} volume={1} timeout={1500} loop={false} />
+					<AudioPlayer audioSrc="/audio/wens.mp3" play={true} volume={1} timeout={500} loop={false} />
+					<AudioPlayer audioSrc={`/audio/games/${wish.slug}.mp3`} play={true} volume={1} timeout={3000} loop={false} />
 				</> :
         <>
 					<p>Je wens kan helaas niet uitkomen. Probeer het nog eens!</p>
-					<AudioPlayer audioSrc="/audio/geen-wens.mp3" play={true} volume={1} timeout={1000} loop={false} />
+					<AudioPlayer audioSrc="/audio/sound-wish.mp3" play={true} volume={1} timeout={500} loop={false} />
+					<AudioPlayer audioSrc="/audio/geen-wens.mp3" play={true} volume={1} timeout={1500} loop={false} />
 				</>
 			}
 
