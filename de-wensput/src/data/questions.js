@@ -1,75 +1,75 @@
 export const allQuestions = [
   {
     required: true,
-    text: 'Is het tijd voor een spelletje met of zonder kids?',
+    text: 'Met wie schuif jij vanavond aan tafel?',
     buttons: [
-      { name: 'Met kids', attributes: { category: ['familie', 'kids'] } },
-      { name: 'Zonder kids', attributes: { nonCategory: ['kids'] } },
+      { name: 'Met de kids erbij 🎈', attributes: { category: ['familie', 'kids'] } },
+      { name: 'Zonder kids, even quality time 🍷', attributes: { nonCategory: ['kids'] } },
     ],
   },
   {
     required: true,
-    text: 'Zijn magie en fantasy oke?',
+    text: 'Hoeveel magie mag er in jouw spelavontuur zitten?',
     buttons: [
-      { name: 'Geen magie', attributes: { nonTheme: ['fantasy', 'lord-of-the-rings', 'harry-potter', 'draken', 'sprookjes', 'geesten', 'disney'] } },
-      { name: 'Magie en Fantasy mag!' },
-      { name: 'Ik wil graag een fantasy thema', attributes: { theme: ['fantasy', 'lord-of-the-rings', 'harry-potter', 'draken', 'sprookjes', 'disney'] }},
+      { name: 'Doe maar zonder tovenaars & draken ✋', attributes: { nonTheme: ['fantasy', 'lord-of-the-rings', 'harry-potter', 'draken', 'sprookjes', 'geesten', 'disney'] } },
+      { name: 'Een vleugje magie is altijd leuk ✨' },
+      { name: 'Geef mij ALLES aan fantasy! 🧙‍♂️🐉', attributes: { theme: ['fantasy', 'lord-of-the-rings', 'harry-potter', 'draken', 'sprookjes', 'disney'] }},
     ],
   },
   {
     required: false,
-    text: 'Wil je wel of geen tegenstanders?',
+    text: 'Samen de handen ineenslaan, of liever tegen elkaar strijden?',
     buttons: [
-      { name: 'Graag cooperatief', attributes: { tag: ['cooperatief'] } },
-      { name: 'Ik ga de strijd aan!', attributes: { nonTag: ['cooperatief'] } },
+      { name: 'Ik hou van samenwerken 🤝', attributes: { tag: ['cooperatief'] } },
+      { name: 'Ik wil winnen! 🏆', attributes: { nonTag: ['cooperatief'] } },
     ],
   },
   {
     required: false,
-    text: 'Wil je er iets van opsteken?',
+    text: 'Mag een spel je ook iets leren onderweg?',
     buttons: [
-      { name: 'Graag!', attributes: { sort: ['educatief'] } },
-      { name: 'Ik wil gewoon spelen' },
+      { name: 'Ja, graag iets leerzaams 📚', attributes: { sort: ['educatief'] } },
+      { name: 'Nee hoor, ik wil gewoon plezier 🎉' },
     ],
   },
   {
     required: false,
-    text: 'Wil je het ook alleen kunnen spelen?',
+    text: 'Ben jij een solo-speler of speel je liever samen?',
     buttons: [
-      { name: 'Ik ga graag eens solo', attributes: { solo: 'true' } },
-      { name: 'Ik speel altijd met anderen', attributes: { solo: 'false' } },
+      { name: 'Ik trek er gerust alleen op uit 🚀', attributes: { solo: 'true' } },
+      { name: 'Altijd met gezelschap erbij 👯', attributes: { solo: 'false' } },
     ]
   },
   {
     required: false,
-    text: 'Liever een lang spelen, of veel kleintjes achter elkaar?',
+    text: 'Hou je van een episch lang avontuur of korte spelletjes tussendoor?',
     buttons: [
-      { name: 'Het kan me niet lang genoeg duren!', attributes: { duration: ['30-45', '45-60', '60-90', '90-120', '120'] } },
-      { name: 'Ik ga voor kort (Mand!)', attributes: { duration: ['1-15', '15-30'] } }
+      { name: 'Hoe langer, hoe beter! ⏳', attributes: { duration: ['30-45', '45-60', '60-90', '90-120', '120'] } },
+      { name: 'Doe mij maar korte rondes ⚡', attributes: { duration: ['1-15', '15-30'] } }
     ],
   },
   {
     required: false,
-    text: 'Draait het om geluk of wijsheid?',
+    text: 'Wat telt bij jou zwaarder: geluk of slimheid?',
     buttons: [
-      { name: 'Geluk', attributes: { luck: 'true' } },
-      { name: 'Wijsheid', attributes: { luck: 'false' } }
+      { name: 'Alles draait om geluk 🍀', attributes: { luck: 'true' } },
+      { name: 'Geef mij maar slimme strategieën 🧠', attributes: { luck: 'false' } }
     ],
   },
   {
     required: false,
-    text: 'Mag het mee op vakantie?',
+    text: 'Moet het spel ook mee kunnen in de koffer?',
     buttons: [
-      { name: 'Ja, het moet op de campingtafel passen', attributes: { space: ['beperkt'] } },
-      { name: 'Nee, we hebben een grote tafel!', attributes: { nonSpace: ['beperkt'] } }
+      { name: 'Ja, klein genoeg voor op de campingtafel 🏕️', attributes: { space: ['beperkt'] } },
+      { name: 'Nee, wij hebben alle ruimte! 🪑', attributes: { nonSpace: ['beperkt'] } }
     ],
   },
   {
     required: false,
-    text: 'Spreek je goed Engels?',
+    text: 'In welke taal speel jij het liefst?',
     buttons: [
-      { name: 'Ik wil liever een Nederlands spel', attributes: { language: ['nederlands'] } },
-      { name: 'Engels is geen probleem', attributes: { language: ['engels', 'nederlands'] } }
+      { name: 'Liever in het Nederlands 🇳🇱', attributes: { language: ['nederlands'] } },
+      { name: 'Engels is voor mij geen probleem 🌍', attributes: { language: ['engels', 'nederlands'] } }
     ],
   },
 ];

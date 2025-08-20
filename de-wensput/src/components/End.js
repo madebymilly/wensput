@@ -1,33 +1,43 @@
 import { useState, useEffect } from 'react'
 
 import AudioPlayer from './AudioPlayer'
-import Button from './Button'
+import Coin from './Coin'
 
 function End({ wish, handleClick }) {
 	const [showElement, setShowElement] = useState(false)
+	const [showWishTitle, setShowWishTitle] = useState(false)
 
-	// Show the button after 5 seconds
+	// Show the button after 8 seconds
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setShowElement(true);
-		}, 5000);
+		}, 8000);
 	return () => clearTimeout(timer);
 	}, []);
 
 	// Fake to click the button after 20 seconds
 	useEffect(() => {
-        const fakeClickTimer = setTimeout(() => {
-            handleClick();
-        }, 20000);
-        return () => clearTimeout(fakeClickTimer);
-    }, [handleClick]);
+		const fakeClickTimer = setTimeout(() => {
+				handleClick();
+		}, 20000); // 20000ms = 20 seconds
+		return () => clearTimeout(fakeClickTimer);
+	}, [handleClick]);
+
+	// Show the wish title after 3 seconds
+	useEffect(() => {
+		const wishTimer = setTimeout(() => {
+			setShowWishTitle(true);
+		}, 3000);
+		return () => clearTimeout(wishTimer);
+	}, []);
 
 	return (
 		<div className="End">
-			<h2>Jouw wens:</h2>
+			<div className="End__header">
+			<h3>Jouw wens:</h3>
 			{wish ?
 				<>
-					<h1>{wish.name} / {wish.slug}</h1>
+						{showWishTitle && <h2>{wish.name}</h2>}
 					<AudioPlayer audioSrc="/audio/sound-wish.mp3" play={true} volume={1} timeout={1500} loop={false} />
 					<AudioPlayer audioSrc="/audio/wens.mp3" play={true} volume={1} timeout={500} loop={false} />
 					<AudioPlayer audioSrc={`/audio/games/${wish.slug}.mp3`} play={true} volume={1} timeout={3000} loop={false} />
@@ -38,11 +48,10 @@ function End({ wish, handleClick }) {
 					<AudioPlayer audioSrc="/audio/geen-wens.mp3" play={true} volume={1} timeout={1500} loop={false} />
 				</>
 			}
+			</div>
 
-
-			{showElement && (<div>
-				<h3>Wil je opnieuw wensen?</h3>
-				<Button onClick={handleClick}>Ik wens...</Button>
+			{showElement && (<div className="End__button"	>
+				<Coin onClick={handleClick}>Doe een nieuwe wens</Coin>
 			</div>)}
 
 		</div>

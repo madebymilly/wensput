@@ -1,0 +1,32 @@
+.content {
+  height: 90vh;
+  display: flex;
+  padding-inline: 2rem;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/logo-bg.svg');
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-attachment: fixed;
+    background-position: center -50px;
+    opacity: 0.15;
+    z-index: -1;
+  }
+
+  & > * {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+}

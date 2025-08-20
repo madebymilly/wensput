@@ -1,0 +1,30 @@
+:root {
+	--color-black: #000;
+	--color-white: #fff;
+
+	--color-leaf: #32331A;
+	--color-grass: #756B3F;
+	--color-sand: #E4E0D0;
+	--color-stone: #C4B9A3;
+	--color-earth: #925B46;
+	--color-dune: #C9AB8C;
+
+	--color-leaf-400: #4D4B2A;
+	--color-leaf-300: #5E5B3A;
+
+	--color-sand-300: #E9E5D6;
+	--color-sand-200: #F0EDE0;
+	--color-sand-100: #F5F3E9;
+
+  // Opacity colors
+	--color-black--10: rgba(0, 0, 0, 0.1);
+
+	// Brand colors (use these as much as possible)
+	--color-primary: var(--color-earth);
+	--color-secondary: var(--color-leaf);
+	--color-dark: var(--color-leaf);
+	--color-light: var(--color-sand-100);
+	--color-text: var(--color-leaf);
+	--color-text-light: var(--color-sand-200);
+	--color-background: var(--color-sand-200);
+}

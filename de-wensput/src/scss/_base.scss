@@ -1,0 +1,38 @@
+body {
+  background-color: var(--color-background);
+  @include font-content;
+  color: var(--color-text);
+}
+
+h1 {
+  @include heading-xl;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+h2 {
+  @include heading-l;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+h3 {
+  @include heading-m;
+  color: var(--color-grass);
+  text-wrap: balance;
+}
+
+h4 {
+  @include heading-m;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+h5 {
+  @include heading-s;
+  color: var(--color-grass);
+}
+
+.loading {
+  color: red;
+}

@@ -3,8 +3,30 @@
   flex-direction: column;
   gap: 1rem;
   align-items: center;
+  height: 100%;
+  padding-block: 2rem;
+  width: 100%;
 
-  .Button {
-    background-color: lightgreen;
+  &__header {
+    margin-block-end: auto;
+    text-align: center;
+    padding-inline: 5rem;
+    // height: 100%;
+    // display: flex;
+    // justify-content: center;
+    // flex-direction: column;
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 1rem;
+    right: 0rem;
+    transform: rotate(14deg);
+
+    & > .Coin {
+      width: 160px;
+      height: 160px;
+      padding: 2rem;
+    }
   }
 }

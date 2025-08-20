@@ -1,15 +1,14 @@
 .App {
-  background-color: lightyellow;
-  width: 100vw;
+	@include font-content;
+	line-height: 1;
+  color: var(--color-text);
   height: 100vh;
-  padding-inline: 2rem;
-  padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   &__loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+    color: var(--color-text);
   }
 }

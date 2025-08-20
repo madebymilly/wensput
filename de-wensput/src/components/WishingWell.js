@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 
+import Header from './Header'
 import Question from './Question'
 import Start from './Start'
 import End from './End'
 import AudioPlayer from './AudioPlayer'
+
 // import Test from './test-components/Test'
 
 import { shuffle } from '../js/helpers'
@@ -47,11 +49,14 @@ function WishingWell({ allProducts }) {
   }, [allProducts]);
 
   return (
-    <div className="Wishingwell">
-      {renderContent()}
+    <>
+      <Header current={currentQuestionId} total={NUM_OF_Q} showProgress={started && !ended} />
+      <div className="content">
+        {renderContent()}
+      </div>
       <AudioPlayer audioSrc="/audio/music.mp3" play={started} volume={0.4} loop={true} startFrom={60.7} lowerVolume={ended} />
       {/* <Test products={products} /> */}
-    </div>
+    </>
   )
 
   function renderContent() {

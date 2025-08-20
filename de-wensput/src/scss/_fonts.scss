@@ -1,0 +1,83 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
+
+@font-face {
+	font-family: 'Mr Darcy Bold';
+	src: url('/fonts/MrDarcyW01Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+}
+
+:root {
+	// Font families:
+	--font-family-base: 'Afacad Flux', serif;
+	--font-family-alt: 'Mr Darcy Bold', sans-serif;
+	--font-family-heading: 'Alegreya', serif;
+
+	// Font sizes:
+	--font-size-14: 0.875rem;
+	--font-size-16: 1rem;
+	--font-size-18: 1.125rem;
+	--font-size-24: 1.5rem;
+	--font-size-32: 2rem;
+	--font-size-48: 3rem;
+
+	// Font weights:
+	--font-weight-normal: 400;
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
+
+	// Line heights:
+	--line-height-heading: 1.1;
+	--line-height-text: 1.2;
+}
+
+@mixin font-base {
+	font-family: var(--font-family-base);
+	font-weight: var(--font-weight-normal);
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+@mixin font-alt-bold {
+	font-family: var(--font-family-alt);
+	font-weight: var(--font-weight-bold);
+}
+
+@mixin font-heading-bold {
+	font-family: var(--font-family-heading);
+	font-weight: var(--font-weight-bold);
+}
+
+// // Font mixins:
+@mixin font-content {
+	@include font-base;
+	line-height: var(--line-height-text);
+	font-size: var(--font-size-24);
+	font-weight: var(--font-weight-medium)
+}
+
+@mixin heading-xl {
+	@include font-alt-bold;
+	line-height: 1;
+	font-size: var(--font-size-48);
+}
+
+@mixin heading-l {
+	@include font-heading-bold;
+	line-height: 1;
+	font-size: var(--font-size-48);
+}
+
+@mixin heading-m {
+	@include font-heading-bold;
+	line-height: var(--line-height-heading);
+	font-size: var(--font-size-32);
+}
+
+@mixin heading-s {
+	@include font-heading-bold;
+	line-height: var(--line-height-heading);
+	font-size: var(--font-size-24);
+}
