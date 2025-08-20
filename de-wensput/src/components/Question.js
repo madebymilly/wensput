@@ -1,6 +1,6 @@
 import Button from './Button'
 
-function Question({ id, text, buttons, handleClick, numberOfQuestions }) {
+function Question({ text, buttons, handleClick }) {
 
   return (
     <div className="Question">

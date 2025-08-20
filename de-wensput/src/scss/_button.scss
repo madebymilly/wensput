@@ -33,4 +33,32 @@
     transform: rotate(-1deg);
   }
 
+  // houses
+  &::before {
+    content: '';
+    position: absolute;
+    top: -45px;
+    left: 30px;
+    width: 30px;
+    height: 51px;
+    background-image: url('../images/house.svg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  &:nth-child(2)::before {
+    background-image: url('../images/house2.svg');
+    left: 35%;
+    top: -45px;
+    width: 30px;
+    height: 53px;
+    transform: scaleX(-1) rotate(6deg);
+  }
+
+  &:nth-child(3)::before {
+    left: 70%;
+    top: -45px;
+    transform: scaleX(-1) rotate(6deg);
+  }
+
 }

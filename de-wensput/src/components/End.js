@@ -7,11 +7,11 @@ function End({ wish, handleClick }) {
 	const [showElement, setShowElement] = useState(false)
 	const [showWishTitle, setShowWishTitle] = useState(false)
 
-	// Show the button after 8 seconds
+	// Show the button after 6 seconds
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setShowElement(true);
-		}, 8000);
+		}, 6000);
 	return () => clearTimeout(timer);
 	}, []);
 

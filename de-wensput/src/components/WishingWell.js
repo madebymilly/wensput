@@ -75,10 +75,8 @@ function WishingWell({ allProducts }) {
       .map((question, i) => (
         <Question
           key={i}
-          id={i}
           {...question}
           handleClick={handleAnswerClick}
-          numberOfQuestions={questions.length}
         />
       ));
   };
