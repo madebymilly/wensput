@@ -19,7 +19,7 @@ function End({ wish, handleClick }) {
 	useEffect(() => {
 		const fakeClickTimer = setTimeout(() => {
 				handleClick();
-		}, 20000); // 20000ms = 20 seconds
+		}, 2000000); // 20000ms = 20 seconds
 		return () => clearTimeout(fakeClickTimer);
 	}, [handleClick]);
 

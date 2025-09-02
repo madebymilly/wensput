@@ -5,6 +5,7 @@ import Header from './Header';
 import Question from './Question';
 import Start from './Start';
 import End from './End';
+import Stars from './Stars';
 import AudioPlayer from './AudioPlayer';
 
 import { shuffle } from '../js/helpers';
@@ -78,6 +79,7 @@ function WishingWell({ allProducts }) {
       <Header current={currentQuestionId} total={NUM_OF_Q} showProgress={started && !ended} />
 
       <div className="content">
+        <Stars />
         <SwitchTransition mode="out-in">
           <CSSTransition
             key={transitionKey}
@@ -92,6 +94,7 @@ function WishingWell({ allProducts }) {
             </div>
           </CSSTransition>
         </SwitchTransition>
+
       </div>
 
       <AudioPlayer

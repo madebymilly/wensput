@@ -4,13 +4,17 @@
   gap: 1rem;
   align-items: center;
   height: 100%;
-  padding-block: 2rem;
+  // padding-block: 2rem;
+  // padding-top: 2rem;
+  padding-bottom: 2rem;
   width: 100%;
 
   &__header {
     margin-block-end: auto;
     text-align: center;
-    padding-inline: 5rem;
+    // padding-inline: 5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
     height: 100%;
     display: flex;
     justify-content: center;

@@ -1,18 +1,19 @@
 .header {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: center;;
   align-items: center;
-  background-color: var(--color-secondary);
-  color: var(--color-text-light);
-  padding-inline: 2rem;
+  color: var(--color-text);
+  // padding-inline: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   height: 12vh;
 
-  .logo {
-    width: 240px;
-    position: relative;
-    top: -3px;
-  }
+  // .logo {
+  //   width: 240px;
+  //   position: relative;
+  // }
 
   p {
     font-size: 18px;

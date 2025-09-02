@@ -18,13 +18,16 @@
 	--font-size-14: 0.875rem;
 	--font-size-16: 1rem;
 	--font-size-18: 1.125rem;
+	--font-size-22: 1.375rem;
 	--font-size-24: 1.5rem;
 	--font-size-32: 2rem;
 	--font-size-48: 3rem;
+	--font-size-56: 3.5rem;
 
 	// Font weights:
 	--font-weight-normal: 400;
 	--font-weight-medium: 500;
+	--font-weight-semibold: 600;
 	--font-weight-bold: 700;
 
 	// Line heights:
@@ -47,21 +50,21 @@
 
 @mixin font-heading-bold {
 	font-family: var(--font-family-heading);
-	font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-semibold);
 }
 
 // // Font mixins:
 @mixin font-content {
 	@include font-base;
 	line-height: var(--line-height-text);
-	font-size: var(--font-size-24);
+	font-size: var(--font-size-22);
 	font-weight: var(--font-weight-medium)
 }
 
 @mixin heading-xl {
 	@include font-alt-bold;
 	line-height: 1;
-	font-size: var(--font-size-48);
+	font-size: var(--font-size-56);
 }
 
 @mixin heading-l {

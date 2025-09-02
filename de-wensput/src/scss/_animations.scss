@@ -22,3 +22,27 @@
   opacity: 1;
   transition: opacity 300ms;
 }
+
+/* twinkle animation */
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+  15% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  85% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+}

@@ -3,13 +3,15 @@
   color: var(--color-text-light);
   border: 0;
   width: auto;
-  min-width: 200px;
+  min-width: 190px;
   height: 120px;
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 20px;
   @include font-content;
-  padding-inline: 2rem;
+  // padding-inline: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 
   &:hover,
   &:active {
