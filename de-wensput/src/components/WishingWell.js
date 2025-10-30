@@ -65,8 +65,8 @@ function WishingWell({ allProducts }) {
 
   useEffect(() => {
     if (ended) {
-      // addFastTwinkle();
-      addMultiColor(); // teststand
+      addFastTwinkle();
+      //addMultiColor(); // teststand
     }
   }, [ended]);
 
@@ -100,7 +100,7 @@ function WishingWell({ allProducts }) {
       <AudioPlayer
         audioSrc="/audio/music.mp3"
         play={started}
-        volume={0.4}
+        volume={0.5}
         loop={true}
         startFrom={60.7}
         lowerVolume={ended}
@@ -139,7 +139,7 @@ function WishingWell({ allProducts }) {
     const filteredProducts = filterProducts(products, answer);
     setProducts(filteredProducts);
     setCurrentQuestionId((id) => id + 1);
-    console.log(answer);
+    // console.log(answer);
   }
 
   function handleStartClick() {
