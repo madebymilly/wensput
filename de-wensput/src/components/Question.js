@@ -17,3 +17,27 @@ function Question({ text, buttons, handleClick }) {
 }
 
 export default Question;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
