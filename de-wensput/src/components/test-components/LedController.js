@@ -3,7 +3,7 @@ import React from "react";
 const LedController = () => {
   // Functie om een WLED-commando te sturen
   const sendCommand = async (data) => {
-    const ip = "192.168.1.229"; // IP address of ESP8266
+    const ip = "192.168.0.144"; // IP address of ESP8266
     const url = `http://${ip}/json`; // JSON API endpoint
 
     console.log('Sending command:', data);

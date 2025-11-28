@@ -4,7 +4,7 @@ function Start({ handleClick }) {
 
   return (
     <div className="Start">
-      <div class="Start__header">
+      <div className="Start__header">
         <h1>De Wensput</h1>
         <h3>waarmee dromen spellen worden</h3>
       </div>
