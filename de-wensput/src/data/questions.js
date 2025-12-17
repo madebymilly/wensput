@@ -24,14 +24,14 @@ export const allQuestions = [
       { name: 'Ik wil winnen!', attributes: { nonTag: ['cooperatief'] } },
     ],
   },
-  {
-    required: false,
-    text: 'Mag een spel je ook iets leren onderweg?',
-    buttons: [
-      { name: 'Ja, graag iets leerzaams', attributes: { sort: ['educatief'] } },
-      { name: 'Nee hoor, ik wil gewoon plezier' },
-    ],
-  },
+  // {
+  //   required: false,
+  //   text: 'Mag een spel je ook iets leren onderweg?',
+  //   buttons: [
+  //     { name: 'Ja, graag iets leerzaams', attributes: { sort: ['educatief'] } },
+  //     { name: 'Nee hoor, ik wil gewoon plezier' },
+  //   ],
+  // },
   {
     required: false,
     text: 'Ben jij een solo-speler of speel je liever samen?',
@@ -48,14 +48,14 @@ export const allQuestions = [
       { name: 'Doe mij maar korte rondes', attributes: { duration: ['1-15', '15-30'] } }
     ],
   },
-  {
-    required: false,
-    text: 'Wat telt bij jou zwaarder: geluk of slimheid?',
-    buttons: [
-      { name: 'Alles draait om geluk', attributes: { luck: 'true' } },
-      { name: 'Geef mij maar slimme strategieën', attributes: { luck: 'false' } }
-    ],
-  },
+  // {
+  //   required: false,
+  //   text: 'Wat telt bij jou zwaarder: geluk of slimheid?',
+  //   buttons: [
+  //     { name: 'Alles draait om geluk', attributes: { luck: 'true' } },
+  //     { name: 'Geef mij maar slimme strategieën', attributes: { luck: 'false' } }
+  //   ],
+  // },
   {
     required: false,
     text: 'Moet het spel ook mee kunnen in de koffer?',

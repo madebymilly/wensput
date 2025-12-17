@@ -1,4 +1,5 @@
 .Button {
+  position: relative;
   background-color: var(--color-primary);
   color: var(--color-text-light);
   border: 0;
@@ -29,7 +30,7 @@
   transform: rotate(-1deg);
   &:nth-child(2n) {
     transform: rotate(2deg);
-    top: 12px;
+    margin-top: 12px;
   }
   &:nth-child(3n) {
     transform: rotate(-1deg);
