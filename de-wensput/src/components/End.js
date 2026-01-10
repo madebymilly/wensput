@@ -31,13 +31,40 @@ function End({ wish, handleClick }) {
 		return () => clearTimeout(wishTimer);
 	}, []);
 
+	console.log('wish:', wish);
+
 	return (
 		<div className="End">
 			<div className="End__header">
 			<h3>Jouw wens:</h3>
 			{wish ?
 				<>
-						{showWishTitle && <h2>{wish.name}</h2>}
+					{showWishTitle && (
+						<>
+							<h2 class="End__title">{wish.name}</h2>
+							<p>
+								{wish.productCategories?.nodes?.map((category, index) => (
+									category.slug !== 'bordspellen' && (
+										<>										<span>Categorie: </span>
+										<span key={category}>
+											{category.name}
+											{index < wish.productCategories.nodes.length - 1 && ', '}
+										</span>
+										</>
+
+									)
+								))}
+							</p>
+							<p>
+								{wish.productTags?.nodes?.map((tag, index) => (
+									<span key={tag}>
+										Type: {tag.name}
+										{index < wish.productTags.nodes.length - 1 && ', '}
+									</span>
+								))}
+							</p>
+						</>
+					)}
 					<AudioPlayer audioSrc="/audio/sound-wish.mp3" play={true} volume={1} timeout={1500} loop={false} />
 					<AudioPlayer audioSrc="/audio/wens.mp3" play={true} volume={1} timeout={500} loop={false} />
 					<AudioPlayer audioSrc={`/audio/games/${wish.slug}.mp3`} play={true} volume={1} timeout={3000} loop={false} />

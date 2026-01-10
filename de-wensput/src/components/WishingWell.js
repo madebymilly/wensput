@@ -146,7 +146,7 @@ function WishingWell({ allProducts }) {
     setStarted(true);
     setQuestions(getQuestions());
     addMediumTwinkle();
-    console.log(products);
+    // console.log(products);
   }
 
   function handleEndClick() {
