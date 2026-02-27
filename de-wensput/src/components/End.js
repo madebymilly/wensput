@@ -41,16 +41,16 @@ function End({ wish, handleClick }) {
 				<>
 					{showWishTitle && (
 						<>
-							<h2 class="End__title">{wish.name}</h2>
+							<h2 className="End__title">{wish.name}</h2>
 							<p>
 								{wish.productCategories?.nodes?.map((category, index) => (
 									category.slug !== 'bordspellen' && (
-										<>										<span>Categorie: </span>
+										
 										<span key={category}>
 											{category.name}
 											{index < wish.productCategories.nodes.length - 1 && ', '}
 										</span>
-										</>
+										
 
 									)
 								))}
@@ -58,7 +58,7 @@ function End({ wish, handleClick }) {
 							<p>
 								{wish.productTags?.nodes?.map((tag, index) => (
 									<span key={tag}>
-										Type: {tag.name}
+										{tag.name}
 										{index < wish.productTags.nodes.length - 1 && ', '}
 									</span>
 								))}

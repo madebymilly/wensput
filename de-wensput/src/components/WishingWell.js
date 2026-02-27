@@ -24,6 +24,8 @@ function WishingWell({ allProducts }) {
   const [wish, setWish] = useState({});
   const [questions, setQuestions] = useState([]);
 
+  //console.log('all products: ', allProducts);
+
   // ---- Transition refs per "scherm" (start/end/question)
   const nodeRefs = useRef(new Map());
   const getNodeRef = (key) => {
@@ -43,6 +45,7 @@ function WishingWell({ allProducts }) {
 
   // ---- Products met audio filteren + shufflen
   useEffect(() => {
+    // console.log('allProducts in useEffect: ', allProducts);
     const filterProductsWithAudio = async () => {
       const newProducts = await Promise.all(
         allProducts.map(async (product) => {

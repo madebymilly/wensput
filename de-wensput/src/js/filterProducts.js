@@ -1,7 +1,7 @@
 export function filterProducts(products, answer = []) {
 
-  // console.log('products: ', products);
-  // console.log('answer: ', answer);
+  console.log('products: ', products);
+  //console.log('answer: ', answer);
 
   let filteredProducts = [];
 
@@ -122,6 +122,6 @@ export function filterProducts(products, answer = []) {
       }
     });
   }
-  //console.log('filteredProducts: ', filteredProducts);
+  console.log('filteredProducts: ', filteredProducts);
   return filteredProducts;
 };

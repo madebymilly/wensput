@@ -1,6 +1,6 @@
 export const allQuestions = [
   {
-    required: true,
+    required: false,
     text: 'Met wie schuif jij vanavond aan tafel?',
     buttons: [
       { name: 'Met de kids erbij', attributes: { category: ['familie', 'kids'] } },
@@ -11,27 +11,27 @@ export const allQuestions = [
     required: true,
     text: 'Hoeveel magie mag er in jouw spelavontuur zitten?',
     buttons: [
-      { name: 'Doe maar zonder tovenaars & draken', attributes: { nonTheme: ['fantasy', 'lord-of-the-rings', 'harry-potter', 'draken', 'sprookjes', 'geesten', 'disney'] } },
+      { name: 'Doe maar zonder tovenaars & draken', attributes: { nonTheme: ['fantasy', 'lord-of-the-rings', 'harry-potter', 'geesten', 'sprookjes', 'disney', 'monsters', 'piraten', 'star-wars', 'superhelden'] } },
       { name: 'Een vleugje magie is altijd leuk' },
-      { name: 'Geef mij ALLES aan fantasy!', attributes: { theme: ['fantasy', 'lord-of-the-rings', 'harry-potter', 'draken', 'sprookjes', 'disney'] }},
+      { name: 'Geef mij ALLES aan fantasy!', attributes: { theme: ['fantasy', 'lord-of-the-rings', 'harry-potter', 'geesten', 'sprookjes', 'disney', 'monsters', 'avontuur', 'piraten', 'star-wars', 'superhelden'] }},
     ],
   },
   {
-    required: false,
+    required: false,  
     text: 'Samen de handen ineenslaan, of liever tegen elkaar strijden?',
     buttons: [
       { name: 'Ik hou van samenwerken', attributes: { tag: ['cooperatief'] } },
       { name: 'Ik wil winnen!', attributes: { nonTag: ['cooperatief'] } },
     ],
   },
-  // {
-  //   required: false,
-  //   text: 'Mag een spel je ook iets leren onderweg?',
-  //   buttons: [
-  //     { name: 'Ja, graag iets leerzaams', attributes: { sort: ['educatief'] } },
-  //     { name: 'Nee hoor, ik wil gewoon plezier' },
-  //   ],
-  // },
+  {
+    required: false,
+    text: 'Mag een spel je ook iets leren onderweg?',
+    buttons: [
+      { name: 'Ja, graag iets leerzaams', attributes: { nonCategory: ['educatief', 'kennis-taal', 'behendigheid'] }},
+      { name: 'Nee hoor, ik wil gewoon plezier' },
+    ],
+  },
   {
     required: false,
     text: 'Ben jij een solo-speler of speel je liever samen?',
@@ -48,14 +48,6 @@ export const allQuestions = [
       { name: 'Doe mij maar korte rondes', attributes: { duration: ['1-15', '15-30'] } }
     ],
   },
-  // {
-  //   required: false,
-  //   text: 'Wat telt bij jou zwaarder: geluk of slimheid?',
-  //   buttons: [
-  //     { name: 'Alles draait om geluk', attributes: { luck: 'true' } },
-  //     { name: 'Geef mij maar slimme strategieën', attributes: { luck: 'false' } }
-  //   ],
-  // },
   {
     required: false,
     text: 'Moet het spel ook mee kunnen in de koffer?',

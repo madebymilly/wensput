@@ -7,6 +7,7 @@ export function getQuestions() {
 
   // Filter required questions:
   const requiredQuestions = allQuestions.filter(question => question.required)
+  console.log('requiredQuestions: ', requiredQuestions);
 
   // Filter unrequired questions, get as many as settings.numberOfQuestions minus number of required questions:
   const randomQuestions = getRandomItems(allQuestions.filter(question => !question.required), NUM_OF_Q - requiredQuestions.length)
