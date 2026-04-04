@@ -7,6 +7,7 @@ import Start from './Start';
 import End from './End';
 import Stars from './Stars';
 import AudioPlayer from './AudioPlayer';
+import Intermezzo from './Intermezzo';
 
 import { shuffle } from '../js/helpers';
 import { addMediumTwinkle, addFastTwinkle, addMultiColor, turnLedOff } from '../js/led';
@@ -69,7 +70,6 @@ function WishingWell({ allProducts }) {
   useEffect(() => {
     if (ended) {
       addFastTwinkle();
-      //addMultiColor(); // teststand
     }
   }, [ended]);
 
@@ -83,6 +83,7 @@ function WishingWell({ allProducts }) {
 
       <div className="content">
         <Stars />
+        {/* <Intermezzo run={!started} /> */}
         <SwitchTransition mode="out-in">
           <CSSTransition
             key={transitionKey}
@@ -132,7 +133,7 @@ function WishingWell({ allProducts }) {
 
   function getWish() {
     if (products.length > 0) {
-      setWish(products[0]); // eerst item is al gesorteerd/geschud
+      setWish(products[Math.floor(Math.random() * products.length)]);
     } else {
       setWish(false);
     }
@@ -142,14 +143,12 @@ function WishingWell({ allProducts }) {
     const filteredProducts = filterProducts(products, answer);
     setProducts(filteredProducts);
     setCurrentQuestionId((id) => id + 1);
-    // console.log(answer);
   }
 
   function handleStartClick() {
     setStarted(true);
     setQuestions(getQuestions());
     addMediumTwinkle();
-    // console.log(products);
   }
 
   function handleEndClick() {

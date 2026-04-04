@@ -3,7 +3,7 @@ export const allQuestions = [
     required: false,
     text: 'Met wie schuif jij vanavond aan tafel?',
     buttons: [
-      { name: 'Met de kids erbij', attributes: { category: ['familie', 'kids'] } },
+      { name: 'Met de kids erbij', attributes: { category: ['kids'] } },
       { name: 'Zonder kids, even quality time', attributes: { nonCategory: ['kids'] } },
     ],
   },
