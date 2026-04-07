@@ -1,6 +1,6 @@
 import Coin from './Coin'
 
-function Start({ handleClick }) {
+function Start({ handleClick, content }) {
 
   return (
     <div className="Start">
@@ -9,7 +9,7 @@ function Start({ handleClick }) {
         <h3>waarmee dromen spellen worden</h3>
       </div>
       <div className="Start__buttons">
-        <Coin onClick={handleClick}>Start</Coin>
+        <Coin onClick={handleClick}>{content}</Coin>
       </div>
     </div>
   )

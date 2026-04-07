@@ -3,52 +3,52 @@ import AudioPlayer from './AudioPlayer'
 
 import { turnLedOff, addSlowTwinkle } from '../js/led'
 
-export default function Intermezzo() {
+export default function Intermezzo({ run }) {
+
+  let id;
 
   const [start, setStart] = useState(false);
-  const [intermezzo, setIntermezzo] = useState(false);
 
-  let intervalId;
-
-  useEffect(() => {
-    console.log('use effect')
-  }, []);
-
-  function handleClick() {
-    setStart(true)
-    //setIntermezzo(true);
-    startIntermezzo(intervalId);
+  // Only do intermezzo if stop is false (game is running)
+  if (run) {
+    console.log('start intermezzo', start);
+    startIntermezzo(id);
+  } else {
+    console.log('stop intermezzo', start);
+    stopIntermezzo(id);
   }
 
   return (
     <div className="Intermezzo">
-      {!start && <button className="Intermezzo__button" onClick={handleClick}>Set Intermezzo</button>}
-      <AudioPlayer audioSrc="/audio/sound-default.mp3" play={intermezzo} volume={1} />
+      <AudioPlayer 
+        audioSrc="/audio/sound-default.mp3" 
+        play={start} 
+        volume={1}
+        loop={false}
+      />
     </div>
   );
 
-  function startIntermezzo(intervalId) {
-    console.log('start')
-    intervalId = setInterval(() => {
-      console.log('intermezzo');
+  function startIntermezzo() {
 
-        // turnLedOff();
-        // // fadeOutSoundEffect();
-        // console.log('turn LED & sound off for 5 minutes')
+    setInterval(() => {
 
-        setTimeout(() => {
+      // === START 3 seconden actie ===
+      setStart(true);
 
-          // addSlowTwinkle();
-          // // fadeInSoundEffect();
-          console.log('twinkle & sound for 3 seconds')
+      // === STOP actie na 13 seconden ===
+      setTimeout(() => {
 
-        }, 10000); // 10 seconds
-      }, 3000); // 3 seconds
+        setStart(false);
+
+      }, 13000); // 13 seconden actief
+
+    }, 34000); // elke minuut starten
+
   }
 
-  function stopIntermezzo() {
-    console.log('stop')
-    clearInterval(intervalId);
-
+  function stopIntermezzo(id) {
+    console.log('stop intermezzo');
+    clearInterval(id);
   }
 }

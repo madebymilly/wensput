@@ -19,6 +19,7 @@ import { NUM_OF_Q } from '../config/settings';
 
 function WishingWell({ allProducts }) {
   const [started, setStarted] = useState(false);
+  const [intermezzoStarted, setIntermezzoStarted] = useState(false);
   const [ended, setEnded] = useState(false);
   const [products, setProducts] = useState([]);
   const [currentQuestionId, setCurrentQuestionId] = useState(1);
@@ -83,7 +84,7 @@ function WishingWell({ allProducts }) {
 
       <div className="content">
         <Stars />
-        {/* <Intermezzo run={!started} /> */}
+        <Intermezzo run={!started && intermezzoStarted} />
         <SwitchTransition mode="out-in">
           <CSSTransition
             key={transitionKey}
@@ -109,13 +110,16 @@ function WishingWell({ allProducts }) {
         startFrom={60.7}
         lowerVolume={ended}
       />
-      {/* <Test products={products} /> */}
     </>
   );
 
   function renderContent() {
     if (!started) {
-      return <Start handleClick={handleStartClick} />;
+      if (intermezzoStarted) {
+        return <Start handleClick={handleStartClick} content='Start' />; 
+      } else {
+        return <Start handleClick={handleIntermezzoClick} content='Intermezzo' />; 
+      }
     }
     if (ended) {
       return <End wish={wish} handleClick={handleEndClick} />;
@@ -149,6 +153,10 @@ function WishingWell({ allProducts }) {
     setStarted(true);
     setQuestions(getQuestions());
     addMediumTwinkle();
+  }
+
+  function handleIntermezzoClick() {
+    setIntermezzoStarted(true);
   }
 
   function handleEndClick() {
